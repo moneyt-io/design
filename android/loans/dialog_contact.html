@@ -1,0 +1,102 @@
+<!-- NAVIGATION FLOW:
+- Cancel button: Back to form.html
+- Select button: Back to form.html with selected contact
+- Contact selection: Updates selection
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Select Contact - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body>
+<div class="relative flex size-full min-h-screen flex-col bg-slate-50 justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex absolute top-0 left-0 h-full w-full flex-col justify-end items-stretch bg-black/30">
+<div class="flex flex-col items-stretch bg-white rounded-t-2xl shadow-lg max-h-[80vh]">
+<button class="flex h-6 w-full items-center justify-center py-2">
+<div class="h-1.5 w-10 rounded-full bg-slate-300"></div>
+</button>
+
+<!-- Header -->
+<div class="px-4 py-3 border-b border-slate-100">
+<h2 class="text-slate-900 text-lg font-semibold">Select contact</h2>
+<p class="text-slate-500 text-sm">Choose who this loan is with</p>
+</div>
+
+<!-- Search -->
+<div class="px-4 py-3 border-b border-slate-100">
+<div class="flex w-full items-stretch rounded-lg h-10 bg-slate-100 border border-slate-200 focus-within:border-[#0c7ff2] focus-within:ring-1 focus-within:ring-[#0c7ff2]">
+<div class="text-slate-500 flex items-center justify-center pl-3">
+<span class="material-symbols-outlined text-lg">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 focus:outline-none focus:ring-0 border-none bg-transparent h-full placeholder:text-slate-500 px-3 text-sm" placeholder="Search contacts" value=""/>
+</div>
+</div>
+
+<!-- Contacts List -->
+<div class="flex-1 overflow-y-auto">
+<!-- Recent Contacts -->
+<div class="px-4 py-2 bg-slate-50">
+<p class="text-xs font-medium text-slate-600 uppercase tracking-wide">Recent</p>
+</div>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-10 w-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsQJ3sGZpJ3q69isqWPZ2PG3Z7ZK4fUlPLXSHh5KNSwjsn9DAaq6ujCXCl1zDsx2pQA5gPbPuHp2YAZmJXzZ89ZHGGCKDGSRWfetVNp2WrJY8E96LF44DLyevbiIlKQDFfn3Lg-DGC_MYR3GTnDzOUEtfPLGwDgHTY2czlIEF_brjjlnj4tuYQ_vyRuRh2KuvbT-gWvNbffV7EKW-hhC2uRwhVFQ6sne_qU5A8L4QM23oyYTonJSom0TtnwEEx6J5r2fUG6Io0zGSR");'></div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">John Doe</p>
+<p class="text-slate-500 text-sm">555-123-4567</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-[#0c7ff2] bg-[#0c7ff2]">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+</button>
+
+<!-- All Contacts -->
+<div class="px-4 py-2 bg-slate-50">
+<p class="text-xs font-medium text-slate-600 uppercase tracking-wide">All Contacts</p>
+</div>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-10 w-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCLBoveCjvl_ZXLBVfVcpQeIxJib-nW_RzyUJhSWQ7-YaNBrOS2CG-Yf_14isaaJnYB57fwlyniSoKF7p92R7SkDQf6s0Lndf_UDi3atEUIb4J1pTk1Ps1K6HHn_1WcrUuxC3Ed2tjyASqQULwBHLJCxWKxuTtbTiD_vE_HrGUKYAP8-8_lfPwZlcNHtyaPAg-RstXOAIQvBjyqqWY6Mi-EPgu6C0UNKATBc87qsXjGTPV5SeGP02DqAitIxwcf1oHqKavw1XB2nsX1");'></div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Sarah Wilson</p>
+<p class="text-slate-500 text-sm">sarah.wilson@example.com</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+
+<!-- Create New Contact -->
+<div class="px-4 py-3">
+<button onclick="window.location.href='../contacts/form.html'" class="flex items-center gap-3 w-full px-3 py-2 rounded-lg border border-blue-200 bg-blue-50 text-blue-600 hover:bg-blue-100">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-sm font-medium">Create new contact</span>
+</button>
+</div>
+</div>
+
+<!-- Footer Actions -->
+<div class="p-4 border-t border-slate-200">
+<div class="flex gap-3">
+<button onclick="window.location.href='form.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-slate-200 text-slate-700 text-sm font-medium leading-normal tracking-tight">
+<span class="truncate">Cancel</span>
+</button>
+<button onclick="window.location.href='form.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
+<span class="truncate">Select</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

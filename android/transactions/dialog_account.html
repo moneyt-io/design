@@ -1,0 +1,147 @@
+<!-- NAVIGATION FLOW:
+- Cancel button: Back to form.html
+- Select button: Back to form.html with selected account
+- Account selection: Updates selection
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Select Account - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body>
+<div class="relative flex size-full min-h-screen flex-col bg-slate-50 justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex absolute top-0 left-0 h-full w-full flex-col justify-end items-stretch bg-black/30">
+<div class="flex flex-col items-stretch bg-white rounded-t-2xl shadow-lg max-h-[80vh]">
+<button class="flex h-6 w-full items-center justify-center py-2">
+<div class="h-1.5 w-10 rounded-full bg-slate-300"></div>
+</button>
+
+<!-- Header -->
+<div class="px-4 py-3 border-b border-slate-100">
+<h2 class="text-slate-900 text-lg font-semibold">Select account</h2>
+<p class="text-slate-500 text-sm">Choose where this transaction will be recorded</p>
+</div>
+
+<!-- Search -->
+<div class="px-4 py-3 border-b border-slate-100">
+<div class="flex w-full items-stretch rounded-lg h-10 bg-slate-100 border border-slate-200 focus-within:border-[#0c7ff2] focus-within:ring-1 focus-within:ring-[#0c7ff2]">
+<div class="text-slate-500 flex items-center justify-center pl-3">
+<span class="material-symbols-outlined text-lg">search</span>
+</div>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-slate-900 focus:outline-none focus:ring-0 border-none bg-transparent h-full placeholder:text-slate-500 px-3 text-sm" placeholder="Search accounts" value=""/>
+</div>
+</div>
+
+<!-- Accounts List -->
+<div class="flex-1 overflow-y-auto">
+<!-- Bank Accounts -->
+<div class="px-4 py-2 bg-slate-50">
+<p class="text-xs font-medium text-slate-600 uppercase tracking-wide">Bank Accounts</p>
+</div>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Chase Checking</p>
+<p class="text-slate-500 text-sm">****4567 • $8,234.50</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-[#0c7ff2] bg-[#0c7ff2]">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+</button>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600">
+<span class="material-symbols-outlined">savings</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Emergency Fund</p>
+<p class="text-slate-500 text-sm">****8901 • $3,500.00</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+
+<!-- Credit Cards -->
+<div class="px-4 py-2 bg-slate-50">
+<p class="text-xs font-medium text-slate-600 uppercase tracking-wide">Credit Cards</p>
+</div>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-purple-100 text-purple-600">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Chase Sapphire</p>
+<p class="text-slate-500 text-sm">****4567 • Available: $3,854.25</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-gray-100 text-gray-600">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">American Express Gold</p>
+<p class="text-slate-500 text-sm">****8901 • Available: $2,500.00</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+
+<!-- Cash & Digital -->
+<div class="px-4 py-2 bg-slate-50">
+<p class="text-xs font-medium text-slate-600 uppercase tracking-wide">Cash & Digital</p>
+</div>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Cash Wallet</p>
+<p class="text-slate-500 text-sm">Physical Cash • $156.25</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">PayPal</p>
+<p class="text-slate-500 text-sm">Digital Wallet • $560.00</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+</div>
+
+<!-- Footer Actions -->
+<div class="p-4 border-t border-slate-200">
+<div class="flex gap-3">
+<button onclick="window.location.href='form.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-slate-200 text-slate-700 text-sm font-medium leading-normal tracking-tight">
+<span class="truncate">Cancel</span>
+</button>
+<button onclick="window.location.href='form.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
+<span class="truncate">Select</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,164 @@
+<!-- NAVIGATION FLOW:
+- Close button: Back to list.html
+- Parent wallet selector: Shows dialog_parent.html
+- Currency selector: Shows currency options
+- Cancel/Save buttons: Back to list.html
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>New Wallet - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .active .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 500
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-3">
+<button onclick="window.location.href='list.html'" class="text-slate-700 p-2 -ml-2">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center pr-8">New wallet</h1>
+</div>
+</header>
+
+<main class="px-4 py-4 space-y-6">
+<!-- Wallet Name -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="wallet-name">Wallet name</label>
+<input class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-14 px-4 text-base font-normal leading-normal" id="wallet-name" placeholder="Enter wallet name" type="text"/>
+</div>
+
+<!-- Description -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="wallet-description">Description</label>
+<textarea class="form-textarea w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 px-4 py-3 text-base font-normal leading-normal resize-none" id="wallet-description" placeholder="Optional description" rows="3"></textarea>
+</div>
+
+<!-- Wallet Type -->
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-700">Wallet type</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex flex-col items-center gap-2 p-4 rounded-lg bg-blue-500/10 border-2 border-blue-500 text-blue-600 active">
+<span class="material-symbols-outlined text-2xl">account_balance</span>
+<span class="text-sm font-medium">Bank Account</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 hover:bg-slate-200">
+<span class="material-symbols-outlined text-2xl">payments</span>
+<span class="text-sm font-medium">Cash</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 hover:bg-slate-200">
+<span class="material-symbols-outlined text-2xl">savings</span>
+<span class="text-sm font-medium">Savings</span>
+</button>
+<button class="flex flex-col items-center gap-2 p-4 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 hover:bg-slate-200">
+<span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
+<span class="text-sm font-medium">Digital</span>
+</button>
+</div>
+</div>
+
+<!-- Currency -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">Currency</label>
+<button class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 h-14 px-4 text-base font-normal leading-normal flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-green-100 text-green-600">
+<span class="text-lg font-bold">$</span>
+</div>
+<div class="text-left">
+<span class="text-slate-900 font-medium">USD</span>
+<span class="text-slate-500 text-sm ml-2">US Dollar</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</button>
+</div>
+
+<!-- Parent Wallet -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">Parent wallet (optional)</label>
+<button onclick="window.location.href='dialog_parent.html'" class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 h-14 px-4 text-base font-normal leading-normal flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined text-sm">account_balance</span>
+</div>
+<span class="text-slate-500">Select parent wallet</span>
+</div>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</button>
+</div>
+
+<!-- Initial Balance -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="initial-balance">Initial balance</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-500 text-base">$</span>
+<input class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-14 pl-8 pr-4 text-base font-normal leading-normal" id="initial-balance" placeholder="0.00" type="number" step="0.01"/>
+</div>
+</div>
+
+<!-- Account Details (Bank Account only) -->
+<div class="space-y-4 bg-blue-50 border border-blue-200 rounded-lg p-4">
+<h3 class="text-blue-800 text-sm font-semibold">Bank Account Details</h3>
+<div class="grid grid-cols-2 gap-3">
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-blue-50 text-xs text-blue-700" for="account-number">Account Number</label>
+<input class="form-input w-full rounded-lg border-blue-300 bg-blue-50 text-slate-900 placeholder-blue-400 focus:border-blue-500 focus:ring-blue-500 h-12 px-3 text-sm font-normal leading-normal" id="account-number" placeholder="****4567" type="text"/>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-blue-50 text-xs text-blue-700" for="routing-number">Routing Number</label>
+<input class="form-input w-full rounded-lg border-blue-300 bg-blue-50 text-slate-900 placeholder-blue-400 focus:border-blue-500 focus:ring-blue-500 h-12 px-3 text-sm font-normal leading-normal" id="routing-number" placeholder="021000021" type="text"/>
+</div>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-blue-50 text-xs text-blue-700" for="bank-name">Bank Name</label>
+<input class="form-input w-full rounded-lg border-blue-300 bg-blue-50 text-slate-900 placeholder-blue-400 focus:border-blue-500 focus:ring-blue-500 h-12 px-3 text-sm font-normal leading-normal" id="bank-name" placeholder="Chase Bank" type="text"/>
+</div>
+</div>
+
+<!-- Preview -->
+<div class="bg-white rounded-lg p-4 border border-slate-200">
+<p class="text-sm font-medium text-slate-700 mb-3">Preview</p>
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div class="flex-grow">
+<p class="text-slate-800 text-base font-semibold">New Wallet</p>
+<p class="text-slate-500 text-sm">Bank Account • USD</p>
+<p class="text-slate-900 text-lg font-bold mt-1">$0.00</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<footer class="sticky bottom-0 bg-slate-50/80 backdrop-blur-md px-4 py-3 border-t border-slate-200">
+<div class="flex gap-3">
+<button onclick="window.location.href='list.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-slate-200 text-slate-700 text-sm font-medium leading-normal tracking-tight">
+<span class="truncate">Cancel</span>
+</button>
+<button onclick="window.location.href='list.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
+<span class="truncate">Save</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,189 @@
+<!-- NAVIGATION FLOW:
+- Close button: Back to list.html
+- Currency selector: Shows currency options
+- Cancel/Save buttons: Back to list.html
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>New Credit Card - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .active .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 500
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-3">
+<button onclick="window.location.href='list.html'" class="text-slate-700 p-2 -ml-2">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center pr-8">New credit card</h1>
+</div>
+</header>
+
+<main class="px-4 py-4 space-y-6">
+<!-- Card Name -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="card-name">Card name</label>
+<input class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-14 px-4 text-base font-normal leading-normal" id="card-name" placeholder="Enter card name" type="text"/>
+</div>
+
+<!-- Description -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="card-description">Description</label>
+<textarea class="form-textarea w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 px-4 py-3 text-base font-normal leading-normal resize-none" id="card-description" placeholder="Optional description" rows="3"></textarea>
+</div>
+
+<!-- Currency -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">Currency</label>
+<button class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 h-14 px-4 text-base font-normal leading-normal flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-green-100 text-green-600">
+<span class="text-lg font-bold">$</span>
+</div>
+<div class="text-left">
+<span class="text-slate-900 font-medium">USD</span>
+<span class="text-slate-500 text-sm ml-2">US Dollar</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</button>
+</div>
+
+<!-- Credit Limit -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="credit-limit">Credit limit</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-500 text-base">$</span>
+<input class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-14 pl-8 pr-4 text-base font-normal leading-normal" id="credit-limit" placeholder="5,000.00" type="number" step="0.01"/>
+</div>
+</div>
+
+<!-- Cut-off and Payment Days -->
+<div class="grid grid-cols-2 gap-4">
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="cutoff-day">Cut-off day</label>
+<select class="form-select w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 focus:border-blue-500 focus:ring-blue-500 h-14 px-4 text-base font-normal leading-normal" id="cutoff-day">
+<option>15</option>
+<option>1</option>
+<option>5</option>
+<option>10</option>
+<option>20</option>
+<option>25</option>
+<option>30</option>
+</select>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="payment-day">Payment day</label>
+<select class="form-select w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 focus:border-blue-500 focus:ring-blue-500 h-14 px-4 text-base font-normal leading-normal" id="payment-day">
+<option>10</option>
+<option>5</option>
+<option>15</option>
+<option>20</option>
+<option>25</option>
+<option>30</option>
+</select>
+</div>
+</div>
+
+<!-- Interest Rate -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="interest-rate">Interest rate (Annual %)</label>
+<div class="relative">
+<input class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-14 pl-4 pr-8 text-base font-normal leading-normal" id="interest-rate" placeholder="24.99" type="number" step="0.01"/>
+<span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-500 text-base">%</span>
+</div>
+</div>
+
+<!-- Card Details -->
+<div class="space-y-4 bg-purple-50 border border-purple-200 rounded-lg p-4">
+<h3 class="text-purple-800 text-sm font-semibold">Card Details (Optional)</h3>
+<div class="grid grid-cols-2 gap-3">
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-purple-50 text-xs text-purple-700" for="card-number">Card Number</label>
+<input class="form-input w-full rounded-lg border-purple-300 bg-purple-50 text-slate-900 placeholder-purple-400 focus:border-purple-500 focus:ring-purple-500 h-12 px-3 text-sm font-normal leading-normal" id="card-number" placeholder="**** **** **** 4567" type="text"/>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-purple-50 text-xs text-purple-700" for="expiry-date">Expiry Date</label>
+<input class="form-input w-full rounded-lg border-purple-300 bg-purple-50 text-slate-900 placeholder-purple-400 focus:border-purple-500 focus:ring-purple-500 h-12 px-3 text-sm font-normal leading-normal" id="expiry-date" placeholder="MM/YY" type="text"/>
+</div>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-purple-50 text-xs text-purple-700" for="bank-name">Issuing Bank</label>
+<input class="form-input w-full rounded-lg border-purple-300 bg-purple-50 text-slate-900 placeholder-purple-400 focus:border-purple-500 focus:ring-purple-500 h-12 px-3 text-sm font-normal leading-normal" id="bank-name" placeholder="Chase Bank" type="text"/>
+</div>
+</div>
+
+<!-- Card Status -->
+<div class="space-y-2">
+<label class="text-sm font-medium text-slate-700">Card status</label>
+<div class="flex gap-3">
+<button class="flex-1 h-12 rounded-lg bg-green-500/10 text-green-700 border border-green-200 text-sm font-medium active flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+Active
+</button>
+<button class="flex-1 h-12 rounded-lg bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg">block</span>
+Blocked
+</button>
+</div>
+</div>
+
+<!-- Preview -->
+<div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-6 text-white relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="text-lg font-bold">New Credit Card</h3>
+<p class="text-blue-100 text-sm">**** **** **** ****</p>
+</div>
+</div>
+<div class="flex items-center justify-between mb-3">
+<div>
+<p class="text-blue-100 text-xs uppercase tracking-wide">Available Credit</p>
+<p class="text-xl font-bold">$0.00</p>
+</div>
+<div class="text-right">
+<p class="text-blue-100 text-xs uppercase tracking-wide">Limit</p>
+<p class="text-lg font-semibold">$0.00</p>
+</div>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-blue-100">Cut-off: 15th • Payment: 10th</span>
+<span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-medium">Active</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<footer class="sticky bottom-0 bg-slate-50/80 backdrop-blur-md px-4 py-3 border-t border-slate-200">
+<div class="flex gap-3">
+<button onclick="window.location.href='list.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-slate-200 text-slate-700 text-sm font-medium leading-normal tracking-tight">
+<span class="truncate">Cancel</span>
+</button>
+<button onclick="window.location.href='list.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
+<span class="truncate">Save</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>
