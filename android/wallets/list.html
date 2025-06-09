@@ -46,16 +46,12 @@
 All
 </button>
 <button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
-<span class="material-symbols-outlined text-lg mr-2">account_balance</span>
-Bank
+<span class="material-symbols-outlined text-lg mr-2">visibility</span>
+Active
 </button>
 <button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
-<span class="material-symbols-outlined text-lg mr-2">payments</span>
-Cash
-</button>
-<button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
-<span class="material-symbols-outlined text-lg mr-2">savings</span>
-Savings
+<span class="material-symbols-outlined text-lg mr-2">archive</span>
+Archived
 </button>
 </div>
 </div>
@@ -74,39 +70,51 @@ Savings
 <p class="text-white/80 text-sm">+$245.30 this month</p>
 </div>
 
-<!-- Bank Accounts Section -->
+<!-- Main Accounts Group -->
 <div class="mt-6">
-<div class="px-4 mb-3">
-<h3 class="text-slate-800 text-base font-semibold">Bank Accounts</h3>
-</div>
-
-<!-- Main Checking Account -->
-<div class="bg-white mx-4 mb-3 rounded-xl shadow-sm border border-slate-200">
+<!-- Chase Main Account (Parent) -->
+<div class="bg-white mx-4 mb-3 rounded-xl shadow-sm border border-slate-200 overflow-hidden">
 <div class="flex items-center px-4 py-4 hover:bg-slate-50">
+<button onclick="toggleWallet('chase')" class="flex items-center flex-grow text-left">
+<span id="chase-icon" class="material-symbols-outlined text-slate-600 text-lg mr-3">expand_more</span>
 <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-blue-600 mr-4">
 <span class="material-symbols-outlined">account_balance</span>
 </div>
 <div class="flex-grow">
-<h4 class="text-slate-800 text-base font-semibold">Chase Checking</h4>
-<p class="text-slate-500 text-sm">Bank Account • ****4567</p>
-<p class="text-slate-900 text-lg font-bold mt-1">$8,234.50</p>
+<h4 class="text-slate-800 text-base font-semibold">Chase Banking</h4>
+<p class="text-slate-500 text-sm">Main account • 3 wallets</p>
+<p class="text-slate-900 text-lg font-bold mt-1">$11,734.50</p>
+</div>
+</button>
+<button onclick="window.location.href='dialog_wallet.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+
+<!-- Chase Sub-wallets -->
+<div id="chase-subcategories" class="border-t border-slate-100">
+<div class="flex items-center px-4 py-3 hover:bg-slate-50 pl-16">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600 mr-4">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div class="flex-grow">
+<h4 class="text-slate-800 text-base font-medium">Chase Checking</h4>
+<p class="text-slate-500 text-sm">****4567</p>
+<p class="text-slate-900 text-base font-semibold mt-1">$8,234.50</p>
 </div>
 <button onclick="window.location.href='dialog_wallet.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
 <span class="material-symbols-outlined">more_vert</span>
 </button>
 </div>
-</div>
 
-<!-- Savings Account -->
-<div class="bg-white mx-4 mb-3 rounded-xl shadow-sm border border-slate-200">
-<div class="flex items-center px-4 py-4 hover:bg-slate-50">
-<div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-100 text-green-600 mr-4">
+<div class="flex items-center px-4 py-3 hover:bg-slate-50 pl-16">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600 mr-4">
 <span class="material-symbols-outlined">savings</span>
 </div>
 <div class="flex-grow">
-<h4 class="text-slate-800 text-base font-semibold">Emergency Fund</h4>
-<p class="text-slate-500 text-sm">Savings Account • ****8901</p>
-<p class="text-slate-900 text-lg font-bold mt-1">$3,500.00</p>
+<h4 class="text-slate-800 text-base font-medium">Emergency Fund</h4>
+<p class="text-slate-500 text-sm">****8901</p>
+<p class="text-slate-900 text-base font-semibold mt-1">$3,500.00</p>
 </div>
 <button onclick="window.location.href='dialog_wallet.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
 <span class="material-symbols-outlined">more_vert</span>
@@ -115,43 +123,54 @@ Savings
 </div>
 </div>
 
-<!-- Cash & Digital Section -->
-<div class="mt-6">
-<div class="px-4 mb-3">
-<h3 class="text-slate-800 text-base font-semibold">Cash & Digital</h3>
+<!-- Personal Wallets Group (Collapsed) -->
+<div class="bg-white mx-4 mb-3 rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+<div class="flex items-center px-4 py-4 hover:bg-slate-50">
+<button onclick="toggleWallet('personal')" class="flex items-center flex-grow text-left">
+<span id="personal-icon" class="material-symbols-outlined text-slate-600 text-lg mr-3">chevron_right</span>
+<div class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 text-purple-600 mr-4">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div class="flex-grow">
+<h4 class="text-slate-800 text-base font-semibold">Personal Wallets</h4>
+<p class="text-slate-500 text-sm">Cash & digital • 2 wallets</p>
+<p class="text-slate-900 text-lg font-bold mt-1">$716.25</p>
+</div>
+</button>
+<button onclick="window.location.href='dialog_wallet.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
 </div>
 
-<!-- Cash Wallet -->
-<div class="bg-white mx-4 mb-3 rounded-xl shadow-sm border border-slate-200">
-<div class="flex items-center px-4 py-4 hover:bg-slate-50">
-<div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-100 text-green-600 mr-4">
+<!-- Personal Sub-wallets (Hidden) -->
+<div id="personal-subcategories" class="border-t border-slate-100 hidden">
+<div class="flex items-center px-4 py-3 hover:bg-slate-50 pl-16">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600 mr-4">
 <span class="material-symbols-outlined">payments</span>
 </div>
 <div class="flex-grow">
-<h4 class="text-slate-800 text-base font-semibold">Cash Wallet</h4>
-<p class="text-slate-500 text-sm">Physical Cash • USD</p>
-<p class="text-slate-900 text-lg font-bold mt-1">$156.25</p>
+<h4 class="text-slate-800 text-base font-medium">Cash Wallet</h4>
+<p class="text-slate-500 text-sm">Physical cash</p>
+<p class="text-slate-900 text-base font-semibold mt-1">$156.25</p>
 </div>
 <button onclick="window.location.href='dialog_wallet.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
 <span class="material-symbols-outlined">more_vert</span>
 </button>
 </div>
-</div>
 
-<!-- PayPal -->
-<div class="bg-white mx-4 mb-3 rounded-xl shadow-sm border border-slate-200">
-<div class="flex items-center px-4 py-4 hover:bg-slate-50">
-<div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 text-blue-600 mr-4">
+<div class="flex items-center px-4 py-3 hover:bg-slate-50 pl-16">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600 mr-4">
 <span class="material-symbols-outlined">account_balance_wallet</span>
 </div>
 <div class="flex-grow">
-<h4 class="text-slate-800 text-base font-semibold">PayPal</h4>
-<p class="text-slate-500 text-sm">Digital Wallet • USD</p>
-<p class="text-slate-900 text-lg font-bold mt-1">$560.00</p>
+<h4 class="text-slate-800 text-base font-medium">PayPal</h4>
+<p class="text-slate-500 text-sm">Digital wallet</p>
+<p class="text-slate-900 text-base font-semibold mt-1">$560.00</p>
 </div>
 <button onclick="window.location.href='dialog_wallet.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
 <span class="material-symbols-outlined">more_vert</span>
 </button>
+</div>
 </div>
 </div>
 </div>
@@ -176,4 +195,19 @@ Savings
 </button>
 </div>
 </div>
+
+<script>
+function toggleWallet(walletId) {
+    const subcategories = document.getElementById(walletId + '-subcategories');
+    const icon = document.getElementById(walletId + '-icon');
+    
+    if (subcategories.classList.contains('hidden')) {
+        subcategories.classList.remove('hidden');
+        icon.textContent = 'expand_more';
+    } else {
+        subcategories.classList.add('hidden');
+        icon.textContent = 'chevron_right';
+    }
+}
+</script>
 </body></html>

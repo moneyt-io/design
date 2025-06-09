@@ -47,23 +47,20 @@
 <!-- Description -->
 <div class="relative">
 <label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="card-description">Description</label>
-<textarea class="form-textarea w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 px-4 py-3 text-base font-normal leading-normal resize-none" id="card-description" placeholder="Optional description" rows="3"></textarea>
+<textarea class="form-textarea w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 px-4 py-3 text-base font-normal leading-normal resize-none" id="card-description" placeholder="Optional description for this card" rows="3"></textarea>
 </div>
 
-<!-- Currency -->
-<div class="relative">
-<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">Currency</label>
-<button class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 h-14 px-4 text-base font-normal leading-normal flex items-center justify-between">
+<!-- Currency Selection -->
+<div class="space-y-3">
+<label class="text-sm font-medium text-slate-700">Currency</label>
+<button class="flex items-center justify-between w-full px-4 py-3 rounded-lg border border-slate-300 bg-slate-50 text-slate-700 hover:border-blue-300 hover:bg-blue-50">
 <div class="flex items-center gap-3">
-<div class="flex items-center justify-center h-8 w-8 rounded-full bg-green-100 text-green-600">
-<span class="text-lg font-bold">$</span>
-</div>
+<span class="text-xl">$</span>
 <div class="text-left">
-<span class="text-slate-900 font-medium">USD</span>
-<span class="text-slate-500 text-sm ml-2">US Dollar</span>
+<p class="text-sm font-medium">USD - US Dollar</p>
 </div>
 </div>
-<span class="material-symbols-outlined text-slate-400">expand_more</span>
+<span class="material-symbols-outlined">expand_more</span>
 </button>
 </div>
 
@@ -72,105 +69,71 @@
 <label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="credit-limit">Credit limit</label>
 <div class="relative">
 <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-500 text-base">$</span>
-<input class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-14 pl-8 pr-4 text-base font-normal leading-normal" id="credit-limit" placeholder="5,000.00" type="number" step="0.01"/>
+<input class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-14 pl-8 pr-4 text-base font-normal leading-normal" id="credit-limit" placeholder="0.00" type="number" step="0.01"/>
 </div>
+<p class="mt-1 text-xs text-slate-500">Maximum credit available on this card</p>
 </div>
 
-<!-- Cut-off and Payment Days -->
+<!-- Payment Dates -->
 <div class="grid grid-cols-2 gap-4">
 <div class="relative">
-<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="cutoff-day">Cut-off day</label>
-<select class="form-select w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 focus:border-blue-500 focus:ring-blue-500 h-14 px-4 text-base font-normal leading-normal" id="cutoff-day">
-<option>15</option>
-<option>1</option>
-<option>5</option>
-<option>10</option>
-<option>20</option>
-<option>25</option>
-<option>30</option>
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">Cut-off day</label>
+<select class="form-select w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 focus:border-blue-500 focus:ring-blue-500 h-14 px-4 text-base font-normal leading-normal">
+<option value="15">15th</option>
+<option value="1">1st</option>
+<option value="30">30th</option>
 </select>
 </div>
 <div class="relative">
-<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="payment-day">Payment day</label>
-<select class="form-select w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 focus:border-blue-500 focus:ring-blue-500 h-14 px-4 text-base font-normal leading-normal" id="payment-day">
-<option>10</option>
-<option>5</option>
-<option>15</option>
-<option>20</option>
-<option>25</option>
-<option>30</option>
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">Payment day</label>
+<select class="form-select w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 focus:border-blue-500 focus:ring-blue-500 h-14 px-4 text-base font-normal leading-normal">
+<option value="5">5th</option>
+<option value="10">10th</option>
+<option value="20">20th</option>
 </select>
 </div>
 </div>
 
 <!-- Interest Rate -->
 <div class="relative">
-<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="interest-rate">Interest rate (Annual %)</label>
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="interest-rate">Annual interest rate</label>
 <div class="relative">
-<input class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-14 pl-4 pr-8 text-base font-normal leading-normal" id="interest-rate" placeholder="24.99" type="number" step="0.01"/>
+<input class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-14 pl-4 pr-8 text-base font-normal leading-normal" id="interest-rate" placeholder="0.00" type="number" step="0.01"/>
 <span class="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-500 text-base">%</span>
 </div>
+<p class="mt-1 text-xs text-slate-500">APR for this credit card</p>
 </div>
 
-<!-- Card Details -->
-<div class="space-y-4 bg-purple-50 border border-purple-200 rounded-lg p-4">
-<h3 class="text-purple-800 text-sm font-semibold">Card Details (Optional)</h3>
-<div class="grid grid-cols-2 gap-3">
-<div class="relative">
-<label class="absolute -top-2 left-3 px-1 bg-purple-50 text-xs text-purple-700" for="card-number">Card Number</label>
-<input class="form-input w-full rounded-lg border-purple-300 bg-purple-50 text-slate-900 placeholder-purple-400 focus:border-purple-500 focus:ring-purple-500 h-12 px-3 text-sm font-normal leading-normal" id="card-number" placeholder="**** **** **** 4567" type="text"/>
-</div>
-<div class="relative">
-<label class="absolute -top-2 left-3 px-1 bg-purple-50 text-xs text-purple-700" for="expiry-date">Expiry Date</label>
-<input class="form-input w-full rounded-lg border-purple-300 bg-purple-50 text-slate-900 placeholder-purple-400 focus:border-purple-500 focus:ring-purple-500 h-12 px-3 text-sm font-normal leading-normal" id="expiry-date" placeholder="MM/YY" type="text"/>
-</div>
-</div>
-<div class="relative">
-<label class="absolute -top-2 left-3 px-1 bg-purple-50 text-xs text-purple-700" for="bank-name">Issuing Bank</label>
-<input class="form-input w-full rounded-lg border-purple-300 bg-purple-50 text-slate-900 placeholder-purple-400 focus:border-purple-500 focus:ring-purple-500 h-12 px-3 text-sm font-normal leading-normal" id="bank-name" placeholder="Chase Bank" type="text"/>
-</div>
-</div>
-
-<!-- Card Status -->
-<div class="space-y-2">
-<label class="text-sm font-medium text-slate-700">Card status</label>
-<div class="flex gap-3">
-<button class="flex-1 h-12 rounded-lg bg-green-500/10 text-green-700 border border-green-200 text-sm font-medium active flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-lg">check_circle</span>
-Active
+<!-- Card Color Selection -->
+<div class="space-y-3">
+<label class="text-sm font-medium text-slate-700">Card color</label>
+<div class="grid grid-cols-4 gap-3">
+<button class="flex items-center justify-center h-16 w-full rounded-lg border-2 border-blue-500 bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-md">
+<span class="material-symbols-outlined">credit_card</span>
 </button>
-<button class="flex-1 h-12 rounded-lg bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200 flex items-center justify-center gap-2">
-<span class="material-symbols-outlined text-lg">block</span>
-Blocked
+<button class="flex items-center justify-center h-16 w-full rounded-lg border border-slate-300 bg-gradient-to-br from-purple-500 to-purple-600 text-white shadow-md hover:border-purple-300">
+<span class="material-symbols-outlined">credit_card</span>
+</button>
+<button class="flex items-center justify-center h-16 w-full rounded-lg border border-slate-300 bg-gradient-to-br from-green-500 to-green-600 text-white shadow-md hover:border-green-300">
+<span class="material-symbols-outlined">credit_card</span>
+</button>
+<button class="flex items-center justify-center h-16 w-full rounded-lg border border-slate-300 bg-gradient-to-br from-red-500 to-red-600 text-white shadow-md hover:border-red-300">
+<span class="material-symbols-outlined">credit_card</span>
+</button>
+<button class="flex items-center justify-center h-16 w-full rounded-lg border border-slate-300 bg-gradient-to-br from-orange-500 to-orange-600 text-white shadow-md hover:border-orange-300">
+<span class="material-symbols-outlined">credit_card</span>
+</button>
+<button class="flex items-center justify-center h-16 w-full rounded-lg border border-slate-300 bg-gradient-to-br from-pink-500 to-pink-600 text-white shadow-md hover:border-pink-300">
+<span class="material-symbols-outlined">credit_card</span>
+</button>
+<button class="flex items-center justify-center h-16 w-full rounded-lg border border-slate-300 bg-gradient-to-br from-slate-600 to-slate-700 text-white shadow-md hover:border-slate-300">
+<span class="material-symbols-outlined">credit_card</span>
+</button>
+<button class="flex items-center justify-center h-16 w-full rounded-lg border border-slate-300 bg-gradient-to-br from-yellow-500 to-yellow-600 text-white shadow-md hover:border-yellow-300">
+<span class="material-symbols-outlined">credit_card</span>
 </button>
 </div>
-</div>
-
-<!-- Preview -->
-<div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-6 text-white relative overflow-hidden">
-<div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
-<div class="relative z-10">
-<div class="flex items-center justify-between mb-4">
-<div>
-<h3 class="text-lg font-bold">New Credit Card</h3>
-<p class="text-blue-100 text-sm">**** **** **** ****</p>
-</div>
-</div>
-<div class="flex items-center justify-between mb-3">
-<div>
-<p class="text-blue-100 text-xs uppercase tracking-wide">Available Credit</p>
-<p class="text-xl font-bold">$0.00</p>
-</div>
-<div class="text-right">
-<p class="text-blue-100 text-xs uppercase tracking-wide">Limit</p>
-<p class="text-lg font-semibold">$0.00</p>
-</div>
-</div>
-<div class="flex items-center justify-between text-sm">
-<span class="text-blue-100">Cut-off: 15th • Payment: 10th</span>
-<span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs font-medium">Active</span>
-</div>
-</div>
+<p class="text-xs text-slate-500">Choose the color theme for your credit card</p>
 </div>
 </main>
 </div>

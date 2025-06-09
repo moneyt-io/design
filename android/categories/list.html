@@ -1,3 +1,9 @@
+<!-- NAVIGATION FLOW:
+- Back button: Returns to dashboard
+- FAB: Goes to form.html
+- Category items: Goes to edit form
+- Filters: Toggle between income/expense categories
+-->
 <html><head>
 <meta charset="utf-8"/>
 <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
@@ -35,11 +41,11 @@
 </div>
 <div class="px-4 pb-4">
 <div class="flex gap-2">
-<button class="flex-1 h-12 rounded-full bg-green-500/10 text-green-700 border border-green-200 text-sm font-medium active">
+<button class="flex-1 h-10 rounded-full bg-green-500/10 text-green-700 border border-green-200 text-sm font-medium active" onclick="showIncomeCategories()">
 <span class="material-symbols-outlined text-lg mr-2">trending_up</span>
 Income
 </button>
-<button class="flex-1 h-12 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
+<button class="flex-1 h-10 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200" onclick="showExpenseCategories()">
 <span class="material-symbols-outlined text-lg mr-2">trending_down</span>
 Expense
 </button>
@@ -47,112 +53,207 @@ Expense
 </div>
 </header>
 
-<main class="flex-grow overflow-y-auto pb-24">
-<!-- Parent Category: Salary -->
-<div class="bg-white border-b border-slate-100">
-<div class="flex items-center px-4 py-3 hover:bg-slate-50">
-<button class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100 mr-2">
-<span class="material-symbols-outlined text-lg">expand_more</span>
-</button>
-<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600 mr-3">
+<main class="flex-grow overflow-y-auto pb-24 px-4 py-4">
+<!-- Income Categories -->
+<div class="mb-4">
+<h3 class="text-green-700 text-sm font-semibold uppercase tracking-wider flex items-center gap-2 mb-3 px-2">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+Income Categories
+</h3>
+
+<!-- Salary Card -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 mb-3 overflow-hidden">
+<button onclick="toggleCategory('salary')" class="flex items-center gap-3 w-full text-left p-4 hover:bg-slate-50">
+<span id="salary-icon" class="material-symbols-outlined text-slate-600 text-lg">expand_more</span>
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600">
 <span class="material-symbols-outlined">work</span>
 </div>
 <div class="flex-grow">
-<h3 class="text-slate-800 text-base font-medium">Salary</h3>
-<p class="text-slate-500 text-sm">Income • 3 subcategories</p>
+<h4 class="text-slate-800 text-base font-semibold">Salary</h4>
+<p class="text-slate-500 text-sm">3 subcategories</p>
 </div>
-<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100">
+</button>
+
+<div id="salary-subcategories" class="border-t border-slate-100">
+<div class="flex items-center gap-4 bg-white px-4 py-3 border-b border-slate-100 hover:bg-slate-50 cursor-pointer pl-8">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined">work</span>
+</div>
+<div class="flex-grow">
+<p class="text-slate-800 text-base font-medium">Base Salary</p>
+<p class="text-slate-500 text-sm">Monthly base compensation</p>
+</div>
+<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
 <span class="material-symbols-outlined">more_vert</span>
 </button>
 </div>
 
-<!-- Child Categories -->
-<div class="ml-12 border-l border-slate-200">
-<div class="flex items-center px-4 py-2.5 hover:bg-slate-50 relative">
-<div class="absolute -left-3 w-6 h-px bg-slate-200"></div>
-<div class="flex items-center justify-center h-8 w-8 rounded-full bg-green-50 text-green-600 mr-3">
-<span class="material-symbols-outlined text-sm">payments</span>
+<div class="flex items-center gap-4 bg-white px-4 py-3 border-b border-slate-100 hover:bg-slate-50 cursor-pointer pl-8">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
+<span class="material-symbols-outlined">auto_graph</span>
 </div>
 <div class="flex-grow">
-<p class="text-slate-700 text-sm font-medium">Base Salary</p>
+<p class="text-slate-800 text-base font-medium">Bonus</p>
+<p class="text-slate-500 text-sm">Performance bonuses and incentives</p>
 </div>
-<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-6 w-6 rounded-full text-slate-400 hover:bg-slate-100">
-<span class="material-symbols-outlined text-sm">more_vert</span>
+<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">more_vert</span>
 </button>
 </div>
 
-<div class="flex items-center px-4 py-2.5 hover:bg-slate-50 relative">
-<div class="absolute -left-3 w-6 h-px bg-slate-200"></div>
-<div class="flex items-center justify-center h-8 w-8 rounded-full bg-green-50 text-green-600 mr-3">
-<span class="material-symbols-outlined text-sm">card_giftcard</span>
+<div class="flex items-center gap-4 bg-white px-4 py-3 border-b border-slate-100 hover:bg-slate-50 cursor-pointer pl-8">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-purple-100 text-purple-600">
+<span class="material-symbols-outlined">schedule</span>
 </div>
 <div class="flex-grow">
-<p class="text-slate-700 text-sm font-medium">Bonus</p>
+<p class="text-slate-800 text-base font-medium">Overtime</p>
+<p class="text-slate-500 text-sm">Extra hours compensation</p>
 </div>
-<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-6 w-6 rounded-full text-slate-400 hover:bg-slate-100">
-<span class="material-symbols-outlined text-sm">more_vert</span>
-</button>
-</div>
-
-<div class="flex items-center px-4 py-2.5 hover:bg-slate-50 relative">
-<div class="absolute -left-3 w-6 h-px bg-slate-200"></div>
-<div class="flex items-center justify-center h-8 w-8 rounded-full bg-green-50 text-green-600 mr-3">
-<span class="material-symbols-outlined text-sm">schedule</span>
-</div>
-<div class="flex-grow">
-<p class="text-slate-700 text-sm font-medium">Overtime</p>
-</div>
-<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-6 w-6 rounded-full text-slate-400 hover:bg-slate-100">
-<span class="material-symbols-outlined text-sm">more_vert</span>
+<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">more_vert</span>
 </button>
 </div>
 </div>
 </div>
 
-<!-- Parent Category: Investment -->
-<div class="bg-white border-b border-slate-100">
-<div class="flex items-center px-4 py-3 hover:bg-slate-50">
-<button class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100 mr-2">
-<span class="material-symbols-outlined text-lg">chevron_right</span>
+<!-- Business Card -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 mb-3 overflow-hidden">
+<button onclick="toggleCategory('business')" class="flex items-center gap-3 w-full text-left p-4 hover:bg-slate-50">
+<span id="business-icon" class="material-symbols-outlined text-slate-600 text-lg">expand_more</span>
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-orange-100 text-orange-600">
+<span class="material-symbols-outlined text-sm">business</span>
+</div>
+<div class="flex-grow">
+<h4 class="text-slate-800 text-base font-semibold">Business</h4>
+<p class="text-slate-500 text-sm">2 subcategories</p>
+</div>
 </button>
-<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600 mr-3">
+
+<div id="business-subcategories" class="border-t border-slate-100">
+<div class="flex items-center gap-4 bg-white px-4 py-3 border-b border-slate-100 hover:bg-slate-50 cursor-pointer pl-8">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-orange-100 text-orange-600">
+<span class="material-symbols-outlined">sell</span>
+</div>
+<div class="flex-grow">
+<p class="text-slate-800 text-base font-medium">Sales Revenue</p>
+<p class="text-slate-500 text-sm">Income from product sales</p>
+</div>
+<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+
+<div class="flex items-center gap-4 bg-white px-4 py-3 border-b border-slate-100 hover:bg-slate-50 cursor-pointer pl-8">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-amber-100 text-amber-600">
+<span class="material-symbols-outlined">handshake</span>
+</div>
+<div class="flex-grow">
+<p class="text-slate-800 text-base font-medium">Services</p>
+<p class="text-slate-500 text-sm">Professional services income</p>
+</div>
+<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Freelance Card -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 mb-3 overflow-hidden">
+<button onclick="toggleCategory('freelance')" class="flex items-center gap-3 w-full text-left p-4 hover:bg-slate-50">
+<span id="freelance-icon" class="material-symbols-outlined text-slate-600 text-lg">chevron_right</span>
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-teal-100 text-teal-600">
+<span class="material-symbols-outlined">laptop_mac</span>
+</div>
+<div class="flex-grow">
+<h4 class="text-slate-800 text-base font-semibold">Freelance</h4>
+<p class="text-slate-500 text-sm">2 subcategories</p>
+</div>
+</button>
+
+<div id="freelance-subcategories" class="border-t border-slate-100 hidden">
+<div class="flex items-center gap-4 bg-white px-4 py-3 border-b border-slate-100 hover:bg-slate-50 cursor-pointer pl-8">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-teal-100 text-teal-600">
+<span class="material-symbols-outlined">code</span>
+</div>
+<div class="flex-grow">
+<p class="text-slate-800 text-base font-medium">Programming</p>
+<p class="text-slate-500 text-sm">Software development projects</p>
+</div>
+<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+
+<div class="flex items-center gap-4 bg-white px-4 py-3 border-b border-slate-100 hover:bg-slate-50 cursor-pointer pl-8">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-cyan-100 text-cyan-600">
+<span class="material-symbols-outlined">design_services</span>
+</div>
+<div class="flex-grow">
+<p class="text-slate-800 text-base font-medium">Design</p>
+<p class="text-slate-500 text-sm">Graphic and web design work</p>
+</div>
+<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Investments Card -->
+<div class="bg-white rounded-xl shadow-sm border border-slate-200 mb-3 overflow-hidden">
+<button onclick="toggleCategory('investments')" class="flex items-center gap-3 w-full text-left p-4 hover:bg-slate-50">
+<span id="investments-icon" class="material-symbols-outlined text-slate-600 text-lg">chevron_right</span>
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-100 text-indigo-600">
 <span class="material-symbols-outlined">trending_up</span>
 </div>
 <div class="flex-grow">
-<h3 class="text-slate-800 text-base font-medium">Investment</h3>
-<p class="text-slate-500 text-sm">Income • 2 subcategories</p>
+<h4 class="text-slate-800 text-base font-semibold">Investments</h4>
+<p class="text-slate-500 text-sm">3 subcategories</p>
 </div>
-<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100">
-<span class="material-symbols-outlined">more_vert</span>
 </button>
-</div>
-</div>
 
-<!-- Parent Category: Business -->
-<div class="bg-white border-b border-slate-100">
-<div class="flex items-center px-4 py-3 hover:bg-slate-50">
-<button class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100 mr-2">
-<span class="material-symbols-outlined text-lg">chevron_right</span>
-</button>
-<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600 mr-3">
-<span class="material-symbols-outlined">business</span>
+<div id="investments-subcategories" class="border-t border-slate-100 hidden">
+<div class="flex items-center gap-4 bg-white px-4 py-3 border-b border-slate-100 hover:bg-slate-50 cursor-pointer pl-8">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-100 text-indigo-600">
+<span class="material-symbols-outlined">monetization_on</span>
 </div>
 <div class="flex-grow">
-<h3 class="text-slate-800 text-base font-medium">Business</h3>
-<p class="text-slate-500 text-sm">Income • No subcategories</p>
+<p class="text-slate-800 text-base font-medium">Dividends</p>
+<p class="text-slate-500 text-sm">Stock dividend payments</p>
 </div>
-<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100">
+<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+
+<div class="flex items-center gap-4 bg-white px-4 py-3 border-b border-slate-100 hover:bg-slate-50 cursor-pointer pl-8">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-yellow-100 text-yellow-600">
+<span class="material-symbols-outlined">currency_bitcoin</span>
+</div>
+<div class="flex-grow">
+<p class="text-slate-800 text-base font-medium">Crypto Gains</p>
+<p class="text-slate-500 text-sm">Cryptocurrency profits</p>
+</div>
+<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+
+<div class="flex items-center gap-4 bg-white px-4 py-3 hover:bg-slate-50 cursor-pointer pl-8">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600">
+<span class="material-symbols-outlined">real_estate_agent</span>
+</div>
+<div class="flex-grow">
+<p class="text-slate-800 text-base font-medium">Real Estate</p>
+<p class="text-slate-500 text-sm">Property rental income</p>
+</div>
+<button onclick="window.location.href='dialog_category.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-500 hover:bg-slate-100">
 <span class="material-symbols-outlined">more_vert</span>
 </button>
 </div>
 </div>
-
-<!-- Add Category Button -->
-<div class="p-4">
-<button onclick="window.location.href='form.html'" class="flex items-center gap-3 w-full px-4 py-3 rounded-lg border-2 border-dashed border-slate-300 text-slate-600 hover:border-slate-400 hover:bg-slate-50">
-<span class="material-symbols-outlined">add_circle</span>
-<span class="text-sm font-medium">Add new category</span>
-</button>
+</div>
 </div>
 </main>
 </div>
@@ -164,4 +265,46 @@ Expense
 </button>
 </div>
 </div>
+
+<script>
+function toggleCategory(categoryId) {
+    const subcategories = document.getElementById(categoryId + '-subcategories');
+    const icon = document.getElementById(categoryId + '-icon');
+    
+    if (subcategories.classList.contains('hidden')) {
+        subcategories.classList.remove('hidden');
+        icon.textContent = 'expand_more';
+    } else {
+        subcategories.classList.add('hidden');
+        icon.textContent = 'chevron_right';
+    }
+}
+
+// Filter functionality
+function showIncomeCategories() {
+    // Hide all expense categories (if any)
+    const expenseSection = document.querySelector('.bg-red-50');
+    if (expenseSection) {
+        let currentElement = expenseSection;
+        while (currentElement && !currentElement.classList.contains('fixed')) {
+            const nextElement = currentElement.nextElementSibling;
+            if (currentElement.classList.contains('bg-red-50') || 
+                currentElement.classList.contains('bg-slate-50') || 
+                (currentElement.classList.contains('flex') && currentElement.classList.contains('pl-8'))) {
+                currentElement.style.display = 'none';
+            }
+            currentElement = nextElement;
+        }
+    }
+    
+    // Update button states
+    document.querySelector('.bg-green-500\\/10').classList.add('active');
+    document.querySelector('.bg-slate-100').classList.remove('active');
+}
+
+function showExpenseCategories() {
+    // Implementation for expense categories when needed
+    console.log('Show expense categories');
+}
+</script>
 </body></html>
