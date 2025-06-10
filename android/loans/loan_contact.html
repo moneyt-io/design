@@ -1,0 +1,285 @@
+<!-- NAVIGATION FLOW:
+- Back button: Returns to list.html
+- Add loan button: Goes to form.html with contact pre-selected
+- Loan items: Goes to individual loan detail
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Loans with John Doe - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .active .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 500
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-3 justify-between">
+<button onclick="window.location.href='loan_list.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center">Loans with John</h1>
+<button onclick="window.location.href='loan_contact_share.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+</header>
+
+<main class="flex-grow overflow-y-auto pb-24">
+<!-- Contact Summary Card -->
+<div class="bg-gradient-to-r from-slate-600 to-slate-700 mx-4 mt-4 rounded-2xl p-6 text-white">
+<div class="flex items-center gap-3 mb-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-16 w-16" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsQJ3sGZpJ3q69isqWPZ2PG3Z7ZK4fUlPLXSHh5KNSwjsn9DAaq6ujCXCl1zDsx2pQA5gPbPuHp2YAZmJXzZ89ZHGGCKDGSRWfetVNp2WrJY8E96LF44DLyevbiIlKQDFfn3Lg-DGC_MYR3GTnDzOUEtfPLGwDgHTY2czlIEF_brjjlnj4tuYQ_vyRuRh2KuvbT-gWvNbffV7EKW-hhC2uRwhVFQ6sne_qU5A8L4QM23oyYTonJSom0TtnwEEx6J5r2fUG6Io0zGSR");'></div>
+<div class="flex-grow">
+<h2 class="text-xl font-bold">John Doe</h2>
+<p class="text-slate-200 text-sm">555-123-4567</p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-slate-200 text-xs uppercase tracking-wide">Net Balance</p>
+<p class="text-2xl font-bold text-orange-300">+$200.00</p>
+<p class="text-slate-300 text-xs">You are owed</p>
+</div>
+<div>
+<p class="text-slate-200 text-xs uppercase tracking-wide">Active Loans</p>
+<p class="text-lg font-semibold">2</p>
+<p class="text-slate-300 text-xs">1 lent • 1 borrowed</p>
+</div>
+</div>
+</div>
+
+<!-- Summary Cards -->
+<div class="grid grid-cols-2 gap-3 px-4 mt-4">
+<div class="bg-orange-500 rounded-xl p-4 text-white">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-lg">call_made</span>
+<span class="text-xs font-medium opacity-90">You Lent</span>
+</div>
+<p class="text-lg font-bold">$500.00</p>
+<p class="text-xs opacity-80">1 active</p>
+</div>
+<div class="bg-purple-500 rounded-xl p-4 text-white">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-lg">call_received</span>
+<span class="text-xs font-medium opacity-90">You Borrowed</span>
+</div>
+<p class="text-lg font-bold">$300.00</p>
+<p class="text-xs opacity-80">1 active</p>
+</div>
+</div>
+
+<!-- Active Loans -->
+<div class="mt-6">
+<div class="px-4 mb-3 flex items-center justify-between">
+<h3 class="text-slate-800 text-base font-semibold">Active Loans</h3>
+<span class="text-slate-500 text-sm">2 loans</span>
+</div>
+
+<!-- Lent Loan -->
+<div class="bg-white mx-4 mb-3 rounded-lg shadow-sm border border-slate-200">
+<div class="flex items-center px-4 py-4 hover:bg-slate-50 cursor-pointer" onclick="window.location.href='loan_detail.html'">
+<div class="flex items-center justify-center h-12 w-12 rounded-full bg-orange-100 text-orange-600 mr-3">
+<span class="material-symbols-outlined">call_made</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between mb-1">
+<h4 class="text-slate-800 text-base font-semibold">Emergency Loan</h4>
+<p class="text-orange-600 text-lg font-bold">$500.00</p>
+</div>
+<div class="flex items-center gap-2 text-sm text-slate-500 mb-2">
+<span class="material-symbols-outlined text-sm">account_balance_wallet</span>
+<span>Chase Checking</span>
+<span>•</span>
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Due: Jan 15, 2025</span>
+</div>
+<!-- Progress Bar -->
+<div class="mb-2">
+<div class="flex items-center justify-between text-xs text-slate-600 mb-1">
+<span>Paid: $100.00</span>
+<span>Remaining: $400.00</span>
+</div>
+<div class="w-full bg-slate-200 rounded-full h-2">
+<div class="bg-orange-500 h-2 rounded-full" style="width: 20%"></div>
+</div>
+<div class="text-xs text-slate-500 mt-1">20% paid</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-medium">You Lent</span>
+<span class="text-slate-400 text-xs">Dec 15, 2024</span>
+</div>
+</div>
+<div class="flex items-center justify-center w-6">
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</div>
+</div>
+
+<!-- Borrowed Loan -->
+<div class="bg-white mx-4 mb-3 rounded-lg shadow-sm border border-slate-200">
+<div class="flex items-center px-4 py-4 hover:bg-slate-50 cursor-pointer" onclick="window.location.href='loan_detail.html'">
+<div class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 text-purple-600 mr-3">
+<span class="material-symbols-outlined">call_received</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between mb-1">
+<h4 class="text-slate-800 text-base font-semibold">Car Repair Fund</h4>
+<p class="text-purple-600 text-lg font-bold">$300.00</p>
+</div>
+<div class="flex items-center gap-2 text-sm text-slate-500 mb-2">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span>Cash Wallet</span>
+<span>•</span>
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Due: Dec 30, 2024</span>
+</div>
+<!-- Progress Bar -->
+<div class="mb-2">
+<div class="flex items-center justify-between text-xs text-slate-600 mb-1">
+<span>Paid: $50.00</span>
+<span>Remaining: $250.00</span>
+</div>
+<div class="w-full bg-slate-200 rounded-full h-2">
+<div class="bg-purple-500 h-2 rounded-full" style="width: 17%"></div>
+</div>
+<div class="text-xs text-slate-500 mt-1">17% paid</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium">You Borrowed</span>
+<span class="text-slate-400 text-xs">Dec 10, 2024</span>
+</div>
+</div>
+<div class="flex items-center justify-center w-6">
+<span class="material-symbols-outlined text-slate-400">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Summary Stats for Active Loans -->
+<div class="bg-white mt-4 mx-4 rounded-xl shadow-sm">
+<div class="px-4 py-3 border-b border-slate-100">
+<h3 class="text-slate-800 text-base font-semibold">Active Summary</h3>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">You Lent (Active)</span>
+<span class="text-orange-600 text-sm font-medium">$500.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">You Borrowed (Active)</span>
+<span class="text-purple-600 text-sm font-medium">$300.00</span>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-200">
+<span class="text-slate-700 text-sm font-medium">Net Position (Active)</span>
+<span class="text-orange-600 text-sm font-bold">+$200.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">Total Active Loans</span>
+<span class="text-slate-900 text-sm font-medium">2</span>
+</div>
+</div>
+</div>
+
+<!-- View Complete History Button -->
+<div class="mt-6 px-4">
+<button onclick="window.location.href='loan_history.html'" class="flex items-center justify-center gap-3 w-full px-4 py-4 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50">
+<span class="material-symbols-outlined">history</span>
+<div class="text-center">
+<p class="text-sm font-medium">View Complete History</p>
+<p class="text-xs text-slate-500">See all loans and detailed summary</p>
+</div>
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</main>
+</div>
+</div>
+
+<!-- FAB with Expandable Actions -->
+<div class="fixed bottom-6 right-6">
+<!-- Action Buttons (Initially Hidden) -->
+<div id="fab-actions" class="hidden flex flex-col items-end gap-3 mb-3">
+<!-- Lend Money Action -->
+<div class="flex items-center gap-3">
+<div class="bg-black/70 text-white px-3 py-2 rounded-lg text-sm font-medium">
+Lend Money
+</div>
+<button onclick="window.location.href='loan_form.html?type=lend&contact=john'" class="flex items-center justify-center h-12 w-12 rounded-full bg-orange-500 text-white shadow-lg hover:bg-orange-600">
+<span class="material-symbols-outlined text-xl">call_made</span>
+</button>
+</div>
+
+<!-- Borrow Money Action -->
+<div class="flex items-center gap-3">
+<div class="bg-black/70 text-white px-3 py-2 rounded-lg text-sm font-medium">
+Borrow Money
+</div>
+<button onclick="window.location.href='loan_form.html?type=borrow&contact=john'" class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-500 text-white shadow-lg hover:bg-purple-600">
+<span class="material-symbols-outlined text-xl">call_received</span>
+</button>
+</div>
+</div>
+
+<!-- Main FAB (Standardized) -->
+<button id="main-fab" onclick="toggleFabActions()" class="flex items-center justify-center rounded-2xl h-16 w-16 bg-[#0c7ff2] text-white shadow-lg hover:bg-blue-700 transition-transform duration-200">
+<span id="fab-icon" class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+
+<!-- Overlay for FAB Actions -->
+<div id="fab-overlay" class="hidden fixed inset-0 bg-black/20 z-40" onclick="closeFabActions()"></div>
+</div>
+
+<script>
+let fabExpanded = false;
+
+function toggleFabActions() {
+    const actions = document.getElementById('fab-actions');
+    const overlay = document.getElementById('fab-overlay');
+    const icon = document.getElementById('fab-icon');
+    const mainFab = document.getElementById('main-fab');
+    
+    if (fabExpanded) {
+        closeFabActions();
+    } else {
+        // Show actions
+        actions.classList.remove('hidden');
+        overlay.classList.remove('hidden');
+        icon.textContent = 'close';
+        mainFab.style.transform = 'rotate(45deg)';
+        fabExpanded = true;
+    }
+}
+
+function closeFabActions() {
+    const actions = document.getElementById('fab-actions');
+    const overlay = document.getElementById('fab-overlay');
+    const icon = document.getElementById('fab-icon');
+    const mainFab = document.getElementById('main-fab');
+    
+    // Hide actions
+    actions.classList.add('hidden');
+    overlay.classList.add('hidden');
+    icon.textContent = 'add';
+    mainFab.style.transform = 'rotate(0deg)';
+    fabExpanded = false;
+}
+</script>
+</body></html>

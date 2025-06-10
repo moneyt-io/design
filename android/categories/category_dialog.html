@@ -1,0 +1,195 @@
+<!-- NAVIGATION FLOW:
+- Cancel button: Back to form.html
+- Select button: Back to form.html with selected category
+- Category selection: Updates selection
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Select Category - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body>
+<div class="relative flex size-full min-h-screen flex-col bg-slate-50 justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex absolute top-0 left-0 h-full w-full flex-col justify-end items-stretch bg-black/30">
+<div class="flex flex-col items-stretch bg-white rounded-t-2xl shadow-lg max-h-[80vh]">
+<button class="flex h-6 w-full items-center justify-center py-2">
+<div class="h-1.5 w-10 rounded-full bg-slate-300"></div>
+</button>
+
+<!-- Header -->
+<div class="px-4 py-3 border-b border-slate-100">
+<h2 class="text-slate-900 text-lg font-semibold">Select category</h2>
+<p class="text-slate-500 text-sm">Choose transaction category</p>
+</div>
+
+<!-- Type Filter -->
+<div class="px-4 py-3 border-b border-slate-100">
+<div class="flex gap-2">
+<button class="flex-1 h-8 rounded-full bg-green-500/10 text-green-700 border border-green-200 text-xs font-medium active" id="income-btn">
+Income
+</button>
+<button class="flex-1 h-8 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-xs font-medium hover:bg-slate-200" id="expense-btn">
+Expense
+</button>
+</div>
+</div>
+
+<!-- Categories List -->
+<div class="flex-1 overflow-y-auto">
+<!-- Income Categories -->
+<div id="income-categories">
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined">work</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Salary</p>
+<p class="text-slate-500 text-sm">Work income and wages</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-[#0c7ff2] bg-[#0c7ff2]">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+</button>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-purple-100 text-purple-600">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Investment</p>
+<p class="text-slate-500 text-sm">Returns and dividends</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-100 text-indigo-600">
+<span class="material-symbols-outlined">business</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Business</p>
+<p class="text-slate-500 text-sm">Business income</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-pink-100 text-pink-600">
+<span class="material-symbols-outlined">card_giftcard</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Gift</p>
+<p class="text-slate-500 text-sm">Gifts and bonuses</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-cyan-100 text-cyan-600">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Other Income</p>
+<p class="text-slate-500 text-sm">Miscellaneous income</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+</div>
+
+<!-- Expense Categories -->
+<div id="expense-categories" style="display: none;">
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-orange-100 text-orange-600">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Food & Groceries</p>
+<p class="text-slate-500 text-sm">Supermarket and food purchases</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined">local_gas_station</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Transportation</p>
+<p class="text-slate-500 text-sm">Gas, public transport, parking</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-purple-100 text-purple-600">
+<span class="material-symbols-outlined">movie</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Entertainment</p>
+<p class="text-slate-500 text-sm">Movies, games, subscriptions</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-red-100 text-red-600">
+<span class="material-symbols-outlined">local_hospital</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Healthcare</p>
+<p class="text-slate-500 text-sm">Medical expenses and pharmacy</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-yellow-100 text-yellow-600">
+<span class="material-symbols-outlined">home</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Housing</p>
+<p class="text-slate-500 text-sm">Rent, utilities, maintenance</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+
+<button class="flex items-center gap-3 w-full px-4 py-3 hover:bg-slate-50">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-teal-100 text-teal-600">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">Education</p>
+<p class="text-slate-500 text-sm">Courses, books, training</p>
+</div>
+<div class="flex items-center justify-center h-5 w-5 rounded-full border-2 border-slate-300"></div>
+</button>
+</div>
+</div>
+
+<!-- Footer Actions -->
+<div class="p-4 border-t border-slate-200">
+<div class="flex gap-3">
+<button onclick="window.location.href='../transactions/transaction_form.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-slate-200 text-slate-700 text-sm font-medium leading-normal tracking-tight">
+<span class="truncate">Cancel</span>
+</button>
+<button onclick="window.location.href='../transactions/transaction_form.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
+<span class="truncate">Select</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,256 @@
+<!-- NAVIGATION FLOW:
+- Back button: Returns to loan_list.html
+- Date filter: Shows calendar picker
+- Amount filter: Number inputs with validation
+- Contact filter: Shows contact picker
+- Apply/Clear buttons: Back to loan_list.html with filters
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Filter Loans - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-3">
+<button onclick="window.location.href='loan_list.html'" class="text-slate-700 p-2 -ml-2">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center pr-8">Filter Loans</h1>
+</div>
+</header>
+
+<main class="px-4 py-4 space-y-6">
+<!-- Quick Date Filters -->
+<div class="space-y-3">
+<label class="text-sm font-medium text-slate-700">Quick date filters</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="h-10 rounded-lg bg-blue-500/10 text-blue-700 border border-blue-200 text-sm font-medium active">
+This Month
+</button>
+<button class="h-10 rounded-lg bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
+Last Month
+</button>
+<button class="h-10 rounded-lg bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
+This Year
+</button>
+<button class="h-10 rounded-lg bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
+All Time
+</button>
+</div>
+</div>
+
+<!-- Custom Date Range -->
+<div class="space-y-3">
+<label class="text-sm font-medium text-slate-700">Custom date range</label>
+<div class="grid grid-cols-2 gap-3">
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">From date</label>
+<button onclick="window.location.href='../components/dialog_date.html'" class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 h-12 px-4 text-sm font-normal leading-normal flex items-center justify-between">
+<span class="text-slate-500">Select date</span>
+<span class="material-symbols-outlined text-slate-400 text-lg">calendar_today</span>
+</button>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">To date</label>
+<button onclick="window.location.href='../components/dialog_date.html'" class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 h-12 px-4 text-sm font-normal leading-normal flex items-center justify-between">
+<span class="text-slate-500">Select date</span>
+<span class="material-symbols-outlined text-slate-400 text-lg">calendar_today</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Loan Type -->
+<div class="space-y-3">
+<label class="text-sm font-medium text-slate-700">Loan type</label>
+<div class="bg-slate-100 p-1 rounded-lg">
+<div class="space-y-1">
+<label class="flex items-center gap-3 p-3 rounded-md hover:bg-white/50 cursor-pointer">
+<div class="flex items-center">
+<input type="checkbox" class="sr-only peer" checked>
+<div class="w-5 h-5 border-2 border-orange-300 rounded flex items-center justify-center peer-checked:bg-orange-500 peer-checked:border-orange-500 transition-all">
+<span class="material-symbols-outlined text-white text-sm opacity-0 peer-checked:opacity-100">check</span>
+</div>
+</div>
+<div class="flex items-center gap-2 flex-grow">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-orange-100 text-orange-600">
+<span class="material-symbols-outlined text-lg">call_made</span>
+</div>
+<div>
+<span class="text-slate-800 text-sm font-medium">Lent Out</span>
+<p class="text-slate-500 text-xs">Money you lent to others</p>
+</div>
+</div>
+</label>
+
+<label class="flex items-center gap-3 p-3 rounded-md hover:bg-white/50 cursor-pointer">
+<div class="flex items-center">
+<input type="checkbox" class="sr-only peer" checked>
+<div class="w-5 h-5 border-2 border-purple-300 rounded flex items-center justify-center peer-checked:bg-purple-500 peer-checked:border-purple-500 transition-all">
+<span class="material-symbols-outlined text-white text-sm opacity-0 peer-checked:opacity-100">check</span>
+</div>
+</div>
+<div class="flex items-center gap-2 flex-grow">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-purple-100 text-purple-600">
+<span class="material-symbols-outlined text-lg">call_received</span>
+</div>
+<div>
+<span class="text-slate-800 text-sm font-medium">Borrowed</span>
+<p class="text-slate-500 text-xs">Money you borrowed from others</p>
+</div>
+</div>
+</label>
+</div>
+</div>
+</div>
+
+<!-- Status -->
+<div class="space-y-3">
+<label class="text-sm font-medium text-slate-700">Loan status</label>
+<div class="bg-slate-100 p-1 rounded-lg">
+<div class="space-y-1">
+<label class="flex items-center gap-3 p-3 rounded-md hover:bg-white/50 cursor-pointer">
+<div class="flex items-center">
+<input type="checkbox" class="sr-only peer" checked>
+<div class="w-5 h-5 border-2 border-green-300 rounded flex items-center justify-center peer-checked:bg-green-500 peer-checked:border-green-500 transition-all">
+<span class="material-symbols-outlined text-white text-sm opacity-0 peer-checked:opacity-100">check</span>
+</div>
+</div>
+<div class="flex items-center gap-2 flex-grow">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-green-100 text-green-600">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</div>
+<div>
+<span class="text-slate-800 text-sm font-medium">Active</span>
+<p class="text-slate-500 text-xs">Currently outstanding</p>
+</div>
+</div>
+</label>
+
+<label class="flex items-center gap-3 p-3 rounded-md hover:bg-white/50 cursor-pointer">
+<div class="flex items-center">
+<input type="checkbox" class="sr-only peer">
+<div class="w-5 h-5 border-2 border-red-300 rounded flex items-center justify-center peer-checked:bg-red-500 peer-checked:border-red-500 transition-all">
+<span class="material-symbols-outlined text-white text-sm opacity-0 peer-checked:opacity-100">check</span>
+</div>
+</div>
+<div class="flex items-center gap-2 flex-grow">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-red-100 text-red-600">
+<span class="material-symbols-outlined text-lg">schedule</span>
+</div>
+<div>
+<span class="text-slate-800 text-sm font-medium">Overdue</span>
+<p class="text-slate-500 text-xs">Past due date</p>
+</div>
+</div>
+</label>
+
+<label class="flex items-center gap-3 p-3 rounded-md hover:bg-white/50 cursor-pointer">
+<div class="flex items-center">
+<input type="checkbox" class="sr-only peer">
+<div class="w-5 h-5 border-2 border-slate-300 rounded flex items-center justify-center peer-checked:bg-slate-500 peer-checked:border-slate-500 transition-all">
+<span class="material-symbols-outlined text-white text-sm opacity-0 peer-checked:opacity-100">check</span>
+</div>
+</div>
+<div class="flex items-center gap-2 flex-grow">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-slate-100 text-slate-600">
+<span class="material-symbols-outlined text-lg">task_alt</span>
+</div>
+<div>
+<span class="text-slate-800 text-sm font-medium">Completed</span>
+<p class="text-slate-500 text-xs">Fully repaid</p>
+</div>
+</div>
+</label>
+</div>
+</div>
+</div>
+
+<!-- Contact Filter -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">Contact</label>
+<button onclick="window.location.href='../contacts/contact_dialog.html'" class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 h-14 px-4 text-base font-normal leading-normal flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined text-sm">person</span>
+</div>
+<span class="text-slate-900 font-medium">John Doe</span>
+</div>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</button>
+</div>
+
+<!-- Amount Range -->
+<div class="space-y-3">
+<label class="text-sm font-medium text-slate-700">Amount range</label>
+<div class="grid grid-cols-2 gap-3">
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">Min amount</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-500 text-sm">$</span>
+<input class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-12 pl-8 pr-4 text-sm font-normal leading-normal" placeholder="0.00" type="number" step="0.01"/>
+</div>
+</div>
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">Max amount</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-500 text-sm">$</span>
+<input class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-12 pl-8 pr-4 text-sm font-normal leading-normal" placeholder="10,000.00" type="number" step="0.01"/>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Active Filters Summary -->
+<div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+<h3 class="text-blue-800 text-sm font-semibold mb-2">Active filters</h3>
+<div class="flex flex-wrap gap-2">
+<div class="flex items-center gap-1 bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">
+<span class="material-symbols-outlined text-xs">calendar_today</span>
+<span>This Month</span>
+</div>
+<div class="flex items-center gap-1 bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-medium">
+<span class="material-symbols-outlined text-xs">call_made</span>
+<span>Lent Out</span>
+</div>
+<div class="flex items-center gap-1 bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+<span>Active</span>
+</div>
+<div class="flex items-center gap-1 bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">
+<span class="material-symbols-outlined text-xs">person</span>
+<span>John Doe</span>
+</div>
+</div>
+<p class="text-blue-600 text-xs mt-2">Found 8 loans matching these filters</p>
+</div>
+</main>
+</div>
+
+<footer class="sticky bottom-0 bg-slate-50/80 backdrop-blur-md px-4 py-3 border-t border-slate-200">
+<div class="flex gap-3">
+<button onclick="window.location.href='loan_list.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-slate-200 text-slate-700 text-sm font-medium leading-normal tracking-tight">
+<span class="truncate">Clear All</span>
+</button>
+<button onclick="window.location.href='loan_list.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
+<span class="truncate">Apply Filters</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>

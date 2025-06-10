@@ -1,0 +1,149 @@
+<!-- NAVIGATION FLOW:
+- Close button: Back to detail.html
+- Account selector: Shows dialog_account.html
+- Date selector: Shows dialog_date.html
+- Cancel/Save buttons: Back to detail.html
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Record Payment - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .active .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 500
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-3">
+<button onclick="window.location.href='loan_detail.html'" class="text-slate-700 p-2 -ml-2">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center pr-8">Record Payment</h1>
+</div>
+</header>
+
+<main class="px-4 py-4 space-y-6">
+<!-- Loan Summary -->
+<div class="bg-orange-50 border border-orange-200 rounded-lg p-4">
+<div class="flex items-center gap-3 mb-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-orange-100 text-orange-600">
+<span class="material-symbols-outlined">call_made</span>
+</div>
+<div class="flex-grow">
+<h3 class="text-orange-800 text-sm font-semibold">Emergency Loan to John Doe</h3>
+<p class="text-orange-600 text-lg font-bold">$500.00 total</p>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs text-orange-700 mb-1">
+<span>Paid: $100.00</span>
+<span>Remaining: $400.00</span>
+</div>
+<div class="w-full bg-orange-200 rounded-full h-2">
+<div class="bg-orange-500 h-2 rounded-full" style="width: 20%"></div>
+</div>
+<div class="text-xs text-orange-600 mt-1">20% paid • Due: Jan 15, 2025</div>
+</div>
+
+<!-- Payment Amount -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="amount">Payment amount</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-500 text-lg">$</span>
+<input class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-16 pl-8 pr-4 text-lg font-semibold leading-normal" id="amount" placeholder="0.00" type="number" step="0.01"/>
+</div>
+<div class="flex gap-2 mt-2">
+<button class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-medium hover:bg-green-200">
+Full Payment ($400.00)
+</button>
+<button class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-medium hover:bg-blue-200">
+Half ($200.00)
+</button>
+</div>
+</div>
+
+<!-- Payment Date -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">Payment date</label>
+<button onclick="window.location.href='../components/dialog_date.html'" class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 h-14 px-4 text-base font-normal leading-normal flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+</div>
+<span class="text-slate-900 font-medium">December 16, 2024</span>
+</div>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</button>
+</div>
+
+<!-- Account -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">Received in account</label>
+<button onclick="window.location.href='../wallets/wallet_dialog.html'" class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 h-14 px-4 text-base font-normal leading-normal flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined text-sm">account_balance</span>
+</div>
+<div class="text-left">
+<span class="text-slate-900 font-medium">Chase Checking</span>
+<span class="text-slate-500 text-sm ml-2">$8,234.50</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
+</button>
+</div>
+
+<!-- Payment Details -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500" for="details">Payment details</label>
+<textarea class="form-textarea w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 px-4 py-3 text-base font-normal leading-normal resize-none" id="details" placeholder="Add notes about this payment (optional)" rows="3"></textarea>
+</div>
+
+<!-- Payment Summary -->
+<div class="bg-white rounded-lg p-4 border border-slate-200">
+<p class="text-sm font-medium text-slate-700 mb-3">Payment summary</p>
+<div class="space-y-2">
+<div class="flex items-center justify-between text-sm">
+<span class="text-slate-600">Payment amount</span>
+<span class="text-slate-900 font-medium">$0.00</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-slate-600">Remaining balance</span>
+<span class="text-orange-600 font-medium">$400.00</span>
+</div>
+<div class="flex items-center justify-between text-sm">
+<span class="text-slate-600">New progress</span>
+<span class="text-green-600 font-medium">20%</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<footer class="sticky bottom-0 bg-slate-50/80 backdrop-blur-md px-4 py-3 border-t border-slate-200">
+<div class="flex gap-3">
+<button onclick="window.location.href='loan_detail.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-slate-200 text-slate-700 text-sm font-medium leading-normal tracking-tight">
+<span class="truncate">Cancel</span>
+</button>
+<button onclick="window.location.href='loan_detail.html'" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
+<span class="truncate">Record Payment</span>
+</button>
+</div>
+</footer>
+</div>
+</body></html>

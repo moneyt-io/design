@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,21 +58,66 @@
             }
         }
     </style>
+    <script>
+        // Aplicar tema inicial
+        function applyTheme(isDark) {
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+                if (document.body.classList.contains('bg-slate-100')) {
+                    document.body.classList.remove('bg-slate-100');
+                    document.body.classList.add('bg-slate-900');
+                }
+            } else {
+                document.documentElement.classList.remove('dark');
+                if (document.body.classList.contains('bg-slate-900')) {
+                    document.body.classList.remove('bg-slate-900');
+                    document.body.classList.add('bg-slate-100');
+                }
+            }
+            
+            // Comunicar tema al iframe
+            const iframe = document.querySelector('iframe');
+            if (iframe && iframe.contentWindow) {
+                try {
+                    iframe.contentWindow.postMessage({
+                        type: 'themeChange',
+                        theme: isDark ? 'dark' : 'light'
+                    }, '*');
+                } catch (e) {
+                    // Ignorar errores de cross-origin
+                }
+            }
+        }
+
+        // Escuchar mensajes de cambio de tema
+        window.addEventListener('message', function(event) {
+            if (event.data && event.data.type === 'themeChange') {
+                applyTheme(event.data.theme === 'dark');
+            }
+        });
+
+        // Aplicar tema inicial desde localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('darkMode');
+            const isDark = savedTheme === 'true';
+            applyTheme(isDark);
+        });
+    </script>
 </head>
-<body style='font-family: "Public Sans", "Noto Sans", sans-serif;' class="bg-slate-100 min-h-screen">
+<body style='font-family: "Public Sans", "Noto Sans", sans-serif;' class="bg-slate-900 min-h-screen">
     <!-- Desktop Controls -->
     <div class="desktop-controls fixed top-4 left-4 z-20">
-        <div class="flex items-center gap-3 bg-white rounded-lg shadow-lg px-4 py-2">
-            <button onclick="window.location.href='index.html'" class="flex items-center gap-2 text-slate-600 hover:text-slate-800">
+        <div class="flex items-center gap-3 bg-slate-800 rounded-lg shadow-lg px-4 py-2">
+            <button onclick="window.location.href='index.html'" class="flex items-center gap-2 text-slate-300 hover:text-slate-100">
                 <span class="material-symbols-outlined text-lg">arrow_back</span>
                 <span class="text-sm font-medium">Back to Platforms</span>
             </button>
-            <div class="w-px h-6 bg-slate-300"></div>
+            <div class="w-px h-6 bg-slate-600"></div>
             <div class="flex items-center gap-2">
                 <div class="flex items-center justify-center h-6 w-6 rounded bg-blue-100 text-blue-600">
                     <span class="material-symbols-outlined text-sm">phone_iphone</span>
                 </div>
-                <span class="text-sm font-medium text-slate-700">iOS Version</span>
+                <span class="text-sm font-medium text-slate-300">iOS Version</span>
             </div>
         </div>
     </div>
@@ -93,18 +138,18 @@
 
     <!-- Bottom Info Bar -->
     <div class="desktop-controls fixed bottom-4 left-1/2 transform -translate-x-1/2 z-20">
-        <div class="bg-white rounded-lg shadow-lg px-4 py-2">
-            <div class="flex items-center gap-4 text-sm text-slate-600">
+        <div class="bg-slate-800 rounded-lg shadow-lg px-4 py-2">
+            <div class="flex items-center gap-4 text-sm text-slate-300">
                 <div class="flex items-center gap-1">
                     <span class="material-symbols-outlined text-sm">phone_iphone</span>
                     <span>412 × 915</span>
                 </div>
-                <div class="w-px h-4 bg-slate-300"></div>
+                <div class="w-px h-4 bg-slate-600"></div>
                 <div class="flex items-center gap-1">
                     <span class="material-symbols-outlined text-sm">touch_app</span>
                     <span>Interactive Prototype</span>
                 </div>
-                <div class="w-px h-4 bg-slate-300"></div>
+                <div class="w-px h-4 bg-slate-600"></div>
                 <div class="flex items-center gap-1">
                     <span class="material-symbols-outlined text-sm">apple</span>
                     <span>iOS Style</span>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,116 +16,82 @@
         }
         .platform-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.25), 0 8px 10px -6px rgb(0 0 0 / 0.25);
         }
     </style>
 </head>
-<body style='font-family: "Public Sans", "Noto Sans", sans-serif;' class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+<body style='font-family: "Public Sans", "Noto Sans", sans-serif;' class="bg-gradient-to-br from-slate-900 to-slate-800 min-h-screen">
     <div class="container mx-auto px-4 py-12">
+        <!-- Header with Links -->
+        <div class="flex justify-start items-start mb-8">
+            <!-- External Links -->
+            <div class="flex gap-4">
+                <a href="https://moneyt.io" target="_blank" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-800/70 backdrop-blur-sm hover:bg-slate-800 transition-colors text-slate-300 hover:text-slate-100">
+                    <span class="material-symbols-outlined text-sm">language</span>
+                    <span class="text-sm font-medium">moneyt.io</span>
+                </a>
+                <a href="https://github.com/moneyt-io/design" target="_blank" class="flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-800/70 backdrop-blur-sm hover:bg-slate-800 transition-colors text-slate-300 hover:text-slate-100">
+                    <span class="material-symbols-outlined text-sm">code</span>
+                    <span class="text-sm font-medium">GitHub</span>
+                </a>
+            </div>
+        </div>
+
         <!-- Header -->
         <div class="text-center mb-12">
             <div class="flex items-center justify-center mb-4">
                 <div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-500 text-white mr-3">
                     <span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
                 </div>
-                <h1 class="text-4xl font-bold text-slate-800">MoneyT</h1>
+                <h1 class="text-4xl font-bold text-slate-100">MoneyT</h1>
             </div>
-            <p class="text-xl text-slate-600 mb-2">Design System & Prototypes</p>
-            <p class="text-slate-500">Choose a platform to explore the interface designs</p>
+            <p class="text-xl text-slate-300 mb-2">Design System & Prototypes</p>
+            <p class="text-slate-400">Choose a platform to explore the interface designs</p>
         </div>
 
         <!-- Platform Selection -->
         <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <!-- Web Platform -->
-            <div class="platform-card bg-white rounded-2xl p-8 shadow-lg border border-slate-200 cursor-pointer" onclick="window.location.href='web/'">
-                <div class="text-center mb-6">
-                    <div class="flex items-center justify-center h-20 w-20 rounded-full bg-green-100 text-green-600 mx-auto mb-4">
+            <div class="platform-card bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-700 cursor-pointer" onclick="window.location.href='web/'">
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-20 w-20 rounded-full bg-green-900 text-green-400 mx-auto mb-4">
                         <span class="material-symbols-outlined text-3xl">desktop_windows</span>
                     </div>
-                    <h2 class="text-2xl font-bold text-slate-800 mb-2">Web Application</h2>
-                    <p class="text-slate-600">Full desktop experience with responsive design</p>
+                    <h2 class="text-2xl font-bold text-slate-100 mb-2">Web Application</h2>
+                    <p class="text-slate-300 mb-6">Full desktop experience with responsive design</p>
+                    <button class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-medium transition-colors">
+                        Explore Web Version
+                    </button>
                 </div>
-                
-                <div class="bg-slate-100 rounded-lg p-4 mb-6">
-                    <div class="flex items-center justify-between text-sm text-slate-600 mb-2">
-                        <span>Features</span>
-                        <span class="text-green-600 font-medium">Desktop Optimized</span>
-                    </div>
-                    <div class="space-y-1 text-xs text-slate-500">
-                        <div>• Dashboard & Analytics</div>
-                        <div>• Advanced Filtering</div>
-                        <div>• Multi-window Support</div>
-                        <div>• Keyboard Shortcuts</div>
-                    </div>
-                </div>
-
-                <button class="w-full bg-green-500 text-white py-3 rounded-lg font-medium hover:bg-green-600 transition-colors">
-                    Explore Web Version
-                </button>
             </div>
 
             <!-- Android Platform -->
-            <div class="platform-card bg-white rounded-2xl p-8 shadow-lg border border-slate-200 cursor-pointer" onclick="window.location.href='android-frame.html'">
-                <div class="text-center mb-6">
-                    <div class="flex items-center justify-center h-20 w-20 rounded-full bg-green-100 text-green-600 mx-auto mb-4">
+            <div class="platform-card bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-700 cursor-pointer" onclick="window.location.href='android-frame.html'">
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-20 w-20 rounded-full bg-green-900 text-green-400 mx-auto mb-4">
                         <span class="material-symbols-outlined text-3xl">android</span>
                     </div>
-                    <h2 class="text-2xl font-bold text-slate-800 mb-2">Android App</h2>
-                    <p class="text-slate-600">Native Android experience with Material Design</p>
+                    <h2 class="text-2xl font-bold text-slate-100 mb-2">Android App</h2>
+                    <p class="text-slate-300 mb-6">Native Android experience with Material Design</p>
+                    <button class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg font-medium transition-colors">
+                        Explore Android Version
+                    </button>
                 </div>
-                
-                <div class="bg-slate-100 rounded-lg p-4 mb-6">
-                    <div class="flex items-center justify-between text-sm text-slate-600 mb-2">
-                        <span>Features</span>
-                        <span class="text-green-600 font-medium">Mobile Optimized</span>
-                    </div>
-                    <div class="space-y-1 text-xs text-slate-500">
-                        <div>• Touch-first Interface</div>
-                        <div>• Bottom Navigation</div>
-                        <div>• Gesture Support</div>
-                        <div>• Offline Capabilities</div>
-                    </div>
-                </div>
-
-                <button class="w-full bg-green-500 text-white py-3 rounded-lg font-medium hover:bg-green-600 transition-colors">
-                    Explore Android Version
-                </button>
             </div>
 
             <!-- iOS Platform -->
-            <div class="platform-card bg-white rounded-2xl p-8 shadow-lg border border-slate-200 cursor-pointer" onclick="window.location.href='ios-frame.html'">
-                <div class="text-center mb-6">
-                    <div class="flex items-center justify-center h-20 w-20 rounded-full bg-blue-100 text-blue-600 mx-auto mb-4">
+            <div class="platform-card bg-slate-800 rounded-2xl p-8 shadow-lg border border-slate-700 cursor-pointer" onclick="window.location.href='ios-frame.html'">
+                <div class="text-center">
+                    <div class="flex items-center justify-center h-20 w-20 rounded-full bg-blue-900 text-blue-400 mx-auto mb-4">
                         <span class="material-symbols-outlined text-3xl">phone_iphone</span>
                     </div>
-                    <h2 class="text-2xl font-bold text-slate-800 mb-2">iOS App</h2>
-                    <p class="text-slate-600">Native iOS experience with Human Interface Guidelines</p>
+                    <h2 class="text-2xl font-bold text-slate-100 mb-2">iOS App</h2>
+                    <p class="text-slate-300 mb-6">Native iOS experience with Human Interface Guidelines</p>
+                    <button class="w-full bg-blue-500 hover:bg-blue-600 text-white py-3 rounded-lg font-medium transition-colors">
+                        Explore iOS Version
+                    </button>
                 </div>
-                
-                <div class="bg-slate-100 rounded-lg p-4 mb-6">
-                    <div class="flex items-center justify-between text-sm text-slate-600 mb-2">
-                        <span>Features</span>
-                        <span class="text-blue-600 font-medium">iOS Optimized</span>
-                    </div>
-                    <div class="space-y-1 text-xs text-slate-500">
-                        <div>• Native iOS Components</div>
-                        <div>• Swipe Gestures</div>
-                        <div>• Face ID Integration</div>
-                        <div>• Widget Support</div>
-                    </div>
-                </div>
-
-                <button class="w-full bg-blue-500 text-white py-3 rounded-lg font-medium hover:bg-blue-600 transition-colors">
-                    Explore iOS Version
-                </button>
             </div>
-        </div>
-
-        <!-- Additional Info -->
-        <div class="text-center mt-12">
-            <p class="text-slate-500 text-sm">
-                These are interactive prototypes showcasing the MoneyT financial management app across different platforms
-            </p>
         </div>
     </div>
 </body>

@@ -1,0 +1,171 @@
+<!-- NAVIGATION FLOW:
+- Back button: Returns to contacts list
+- Edit button: Goes to form.html
+- Lend button: Creates a loan where I lend money to contact
+- Borrow button: Creates a loan where contact lends money to me
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Contact Details - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-3 justify-between">
+<button onclick="window.location.href='contact_list.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center">Contact Details</h1>
+<button onclick="window.location.href='contact_form.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</header>
+
+<main class="flex-grow overflow-y-auto pb-24">
+<!-- Contact Header -->
+<div class="bg-white mx-4 mt-4 rounded-xl shadow-sm border border-slate-200 p-6 text-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-20 w-20 mx-auto mb-4" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsQJ3sGZpJ3q69isqWPZ2PG3Z7ZK4fUlPLXSHh5KNSwjsn9DAaq6ujCXCl1zDsx2pQA5gPbPuHp2YAZmJXzZ89ZHGGCKDGSRWfetVNp2WrJY8E96LF44DLyevbiIlKQDFfn3Lg-DGC_MYR3GTnDzOUEtfPLGwDgHTY2czlIEF_brjjlnj4tuYQ_vyRuRh2KuvbT-gWvNbffV7EKW-hhC2uRwhVFQ6sne_qU5A8L4QM23oyYTonJSom0TtnwEEx6J5r2fUG6Io0zGSR");'></div>
+<h2 class="text-slate-900 text-xl font-bold mb-2">Ethan Harper</h2>
+<p class="text-slate-500 text-sm mb-4">Mobile · 555-123-4567</p>
+<div class="flex justify-center gap-3">
+<button class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600 hover:bg-green-200">
+<span class="material-symbols-outlined">call</span>
+</button>
+<button class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200">
+<span class="material-symbols-outlined">message</span>
+</button>
+<button class="flex items-center justify-center h-10 w-10 rounded-full bg-purple-100 text-purple-600 hover:bg-purple-200">
+<span class="material-symbols-outlined">email</span>
+</button>
+</div>
+</div>
+
+<!-- Money Transactions Section -->
+<div class="mt-6 px-4">
+<h3 class="text-slate-800 text-lg font-semibold mb-4">Money Transactions</h3>
+<div class="grid grid-cols-1 gap-4">
+<!-- Lend Money Card -->
+<div class="bg-green-50 border-2 border-green-200 rounded-xl p-6 hover:border-green-300 transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-green-600">
+<span class="material-symbols-outlined text-2xl">north_east</span>
+</div>
+<div class="flex-grow">
+<h4 class="text-green-800 text-lg font-semibold mb-1">Lend Money</h4>
+<p class="text-green-700 text-sm">I lend money to Ethan</p>
+<p class="text-green-600 text-xs mt-1">Create a loan where you are the lender</p>
+</div>
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-green-200 text-green-700">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</div>
+</div>
+</div>
+
+<!-- Borrow Money Card -->
+<div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-6 hover:border-blue-300 transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined text-2xl">south_west</span>
+</div>
+<div class="flex-grow">
+<h4 class="text-blue-800 text-lg font-semibold mb-1">Borrow Money</h4>
+<p class="text-blue-700 text-sm">Ethan lends money to me</p>
+<p class="text-blue-600 text-xs mt-1">Create a loan where you are the borrower</p>
+</div>
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-blue-200 text-blue-700">
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Transaction History -->
+<div class="bg-white mt-6 mx-4 rounded-xl shadow-sm border border-slate-200">
+<div class="px-4 py-3 border-b border-slate-100">
+<h3 class="text-slate-800 text-base font-semibold">Recent Transactions</h3>
+</div>
+<div class="p-4">
+<div class="flex items-center gap-3 py-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div class="flex-grow">
+<p class="text-slate-800 text-sm font-semibold">Payment received</p>
+<p class="text-slate-500 text-xs">December 10, 2024</p>
+</div>
+<p class="text-green-600 text-sm font-bold">+$150.00</p>
+</div>
+<div class="flex items-center gap-3 py-3 border-t border-slate-100">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-red-100 text-red-600">
+<span class="material-symbols-outlined">trending_down</span>
+</div>
+<div class="flex-grow">
+<p class="text-slate-800 text-sm font-semibold">Lunch expense</p>
+<p class="text-slate-500 text-xs">December 8, 2024</p>
+</div>
+<p class="text-red-600 text-sm font-bold">-$25.50</p>
+</div>
+</div>
+</div>
+
+<!-- Contact Information -->
+<div class="bg-white mt-4 mx-4 rounded-xl shadow-sm border border-slate-200">
+<div class="px-4 py-3 border-b border-slate-100">
+<h3 class="text-slate-800 text-base font-semibold">Contact Information</h3>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex justify-between items-start">
+<span class="text-slate-600 text-sm">Phone</span>
+<span class="text-slate-900 font-medium">555-123-4567</span>
+</div>
+<div class="flex justify-between items-start">
+<span class="text-slate-600 text-sm">Email</span>
+<span class="text-slate-900 font-medium">ethan.harper@email.com</span>
+</div>
+<div class="flex justify-between items-start">
+<span class="text-slate-600 text-sm">Address</span>
+<span class="text-slate-900 font-medium text-right">123 Main Street<br>New York, NY 10001</span>
+</div>
+<div class="flex justify-between items-start">
+<span class="text-slate-600 text-sm">Note</span>
+<span class="text-slate-900 font-medium text-right">College friend, reliable with payments</span>
+</div>
+</div>
+</div>
+
+<!-- Delete Contact -->
+<div class="mt-6 px-4 space-y-3">
+<button onclick="confirmDelete()" class="flex items-center gap-3 w-full px-4 py-3 rounded-lg bg-red-50 text-red-600 hover:bg-red-100">
+<span class="material-symbols-outlined">delete</span>
+<span class="text-base font-medium">Delete Contact</span>
+</button>
+</div>
+</main>
+</div>
+</div>
+
+<script>
+function confirmDelete() {
+    if (confirm('Are you sure you want to delete this contact? This action cannot be undone.')) {
+        alert('Contact deleted successfully');
+        window.location.href = 'contact_list.html';
+    }
+}
+</script>
+</body></html>

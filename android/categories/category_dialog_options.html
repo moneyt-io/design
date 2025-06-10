@@ -1,0 +1,76 @@
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Category Options - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body>
+<div class="relative flex size-full min-h-screen flex-col bg-slate-50 justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex absolute top-0 left-0 h-full w-full flex-col justify-end items-stretch bg-black/30">
+<div class="flex flex-col items-stretch bg-white rounded-t-2xl shadow-lg">
+<button class="flex h-6 w-full items-center justify-center py-2">
+<div class="h-1.5 w-10 rounded-full bg-slate-300"></div>
+</button>
+
+<!-- Category Header -->
+<div class="flex items-center gap-3 px-4 py-3 border-b border-slate-100">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600">
+<span class="material-symbols-outlined">work</span>
+</div>
+<div class="flex-grow">
+<h3 class="text-slate-800 text-base font-semibold">Salary</h3>
+<p class="text-slate-500 text-sm">Income category</p>
+</div>
+</div>
+
+<!-- Actions -->
+<div class="flex-1 px-2 pb-2">
+<button onclick="window.location.href='category_form.html'" class="flex items-center gap-4 hover:bg-slate-100 active:bg-slate-200 rounded-lg px-4 py-3 w-full text-left">
+<span class="material-symbols-outlined text-slate-700">edit</span>
+<div class="flex-1">
+<p class="text-slate-800 text-base font-medium">Edit category</p>
+<p class="text-slate-500 text-sm">Modify name, type or icon</p>
+</div>
+</button>
+
+<button onclick="window.location.href='category_list.html'" class="flex items-center gap-4 hover:bg-slate-100 active:bg-slate-200 rounded-lg px-4 py-3 w-full text-left">
+<span class="material-symbols-outlined text-slate-700">content_copy</span>
+<div class="flex-1">
+<p class="text-slate-800 text-base font-medium">Duplicate category</p>
+<p class="text-slate-500 text-sm">Create a copy of this category</p>
+</div>
+</button>
+
+<button onclick="window.location.href='../transactions/transaction_list.html'" class="flex items-center gap-4 hover:bg-slate-100 active:bg-slate-200 rounded-lg px-4 py-3 w-full text-left">
+<span class="material-symbols-outlined text-slate-700">visibility</span>
+<div class="flex-1">
+<p class="text-slate-800 text-base font-medium">View transactions</p>
+<p class="text-slate-500 text-sm">See all transactions in this category</p>
+</div>
+</button>
+
+<hr class="my-2 border-slate-200">
+
+<button onclick="window.location.href='category_list.html'" class="flex items-center gap-4 hover:bg-red-50 active:bg-red-100 rounded-lg px-4 py-3 w-full text-left">
+<span class="material-symbols-outlined text-red-600">delete</span>
+<div class="flex-1">
+<p class="text-red-600 text-base font-medium">Delete category</p>
+<p class="text-red-500 text-sm">This action cannot be undone</p>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>

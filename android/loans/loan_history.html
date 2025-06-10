@@ -1,0 +1,240 @@
+<!-- NAVIGATION FLOW:
+- Back button: Returns to contact_detail.html
+- Filter options: Filter by type and status
+- Loan items: Goes to individual loan detail
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Loan History - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .active .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 500
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-3 justify-between">
+<button onclick="window.location.href='loan_contact.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center">Loan History</h1>
+<button onclick="window.location.href='loan_detail_share.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+<div class="px-4 pb-4">
+<div class="flex gap-2 overflow-x-auto">
+<button class="flex-shrink-0 h-10 px-4 rounded-full bg-blue-500/10 text-blue-700 border border-blue-200 text-sm font-medium active">
+<span class="material-symbols-outlined text-lg mr-2">history</span>
+All
+</button>
+<button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
+<span class="material-symbols-outlined text-lg mr-2">call_made</span>
+Lent
+</button>
+<button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
+<span class="material-symbols-outlined text-lg mr-2">call_received</span>
+Borrowed
+</button>
+<button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
+<span class="material-symbols-outlined text-lg mr-2">check_circle</span>
+Completed
+</button>
+</div>
+</div>
+</header>
+
+<main class="flex-grow overflow-y-auto pb-24">
+<!-- Contact Info -->
+<div class="bg-white mx-4 mt-4 rounded-xl shadow-sm p-4">
+<div class="flex items-center gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-12 w-12" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsQJ3sGZpJ3q69isqWPZ2PG3Z7ZK4fUlPLXSHh5KNSwjsn9DAaq6ujCXCl1zDsx2pQA5gPbPuHp2YAZmJXzZ89ZHGGCKDGSRWfetVNp2WrJY8E96LF44DLyevbiIlKQDFfn3Lg-DGC_MYR3GTnDzOUEtfPLGwDgHTY2czlIEF_brjjlnj4tuYQ_vyRuRh2KuvbT-gWvNbffV7EKW-hhC2uRwhVFQ6sne_qU5A8L4QM23oyYTonJSom0TtnwEEx6J5r2fUG6Io0zGSR");'></div>
+<div class="flex-grow">
+<h3 class="text-slate-800 text-base font-semibold">John Doe</h3>
+<p class="text-slate-500 text-sm">Complete loan history</p>
+</div>
+<div class="text-right">
+<p class="text-slate-900 text-lg font-bold">$900.00</p>
+<p class="text-slate-500 text-xs">Total loaned</p>
+</div>
+</div>
+</div>
+
+<!-- Active Loans Section -->
+<div class="mt-6">
+<div class="px-4 mb-3">
+<h3 class="text-slate-800 text-base font-semibold">Active Loans</h3>
+</div>
+
+<div class="bg-white mx-4 mb-3 rounded-lg shadow-sm border border-slate-200">
+<div class="flex items-center px-4 py-4 hover:bg-slate-50 cursor-pointer" onclick="window.location.href='loan_detail.html'">
+<div class="flex items-center justify-center h-12 w-12 rounded-full bg-orange-100 text-orange-600 mr-3">
+<span class="material-symbols-outlined">call_made</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between mb-1">
+<h4 class="text-slate-800 text-base font-semibold">Emergency Loan</h4>
+<p class="text-orange-600 text-lg font-bold">$500.00</p>
+</div>
+<div class="flex items-center gap-2 text-sm text-slate-500">
+<span class="material-symbols-outlined text-sm">account_balance_wallet</span>
+<span>Chase Checking</span>
+<span>•</span>
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Due: Jan 15, 2025</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-medium">You Lent</span>
+<span class="text-slate-400 text-xs">Dec 15, 2024</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="bg-white mx-4 mb-3 rounded-lg shadow-sm border border-slate-200">
+<div class="flex items-center px-4 py-4 hover:bg-slate-50 cursor-pointer" onclick="window.location.href='loan_detail.html'">
+<div class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 text-purple-600 mr-3">
+<span class="material-symbols-outlined">call_received</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between mb-1">
+<h4 class="text-slate-800 text-base font-semibold">Car Repair Fund</h4>
+<p class="text-purple-600 text-lg font-bold">$300.00</p>
+</div>
+<div class="flex items-center gap-2 text-sm text-slate-500">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span>Cash Wallet</span>
+<span>•</span>
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Due: Dec 30, 2024</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium">You Borrowed</span>
+<span class="text-red-500 text-xs font-medium">Due soon</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Completed Loans Section -->
+<div class="mt-6">
+<div class="px-4 mb-3">
+<h3 class="text-slate-800 text-base font-semibold">Completed Loans</h3>
+</div>
+
+<div class="bg-white mx-4 mb-3 rounded-lg shadow-sm border border-slate-200">
+<div class="flex items-center px-4 py-4 hover:bg-slate-50 cursor-pointer" onclick="window.location.href='loan_detail.html'">
+<div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-100 text-green-600 mr-3">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between mb-1">
+<h4 class="text-slate-800 text-base font-semibold">Car Repair Loan</h4>
+<p class="text-green-600 text-lg font-bold">$250.00</p>
+</div>
+<div class="flex items-center gap-2 text-sm text-slate-500">
+<span class="material-symbols-outlined text-sm">account_balance_wallet</span>
+<span>PayPal</span>
+<span>•</span>
+<span class="material-symbols-outlined text-sm">check</span>
+<span>Repaid: Nov 30, 2024</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">Completed</span>
+<span class="text-slate-400 text-xs">Lent: Oct 15, 2024</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="bg-white mx-4 mb-3 rounded-lg shadow-sm border border-slate-200">
+<div class="flex items-center px-4 py-4 hover:bg-slate-50 cursor-pointer" onclick="window.location.href='loan_detail.html'">
+<div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-100 text-green-600 mr-3">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between mb-1">
+<h4 class="text-slate-800 text-base font-semibold">Vacation Advance</h4>
+<p class="text-green-600 text-lg font-bold">$150.00</p>
+</div>
+<div class="flex items-center gap-2 text-sm text-slate-500">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span>Cash Wallet</span>
+<span>•</span>
+<span class="material-symbols-outlined text-sm">check</span>
+<span>Repaid: Sep 10, 2024</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">Completed</span>
+<span class="text-slate-400 text-xs">Lent: Aug 20, 2024</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Summary Stats -->
+<div class="bg-white mt-4 mx-4 rounded-xl shadow-sm">
+<div class="px-4 py-3 border-b border-slate-100">
+<h3 class="text-slate-800 text-base font-semibold">Complete History Summary</h3>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">Total Ever Lent</span>
+<span class="text-orange-600 text-sm font-medium">$900.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">Total Ever Borrowed</span>
+<span class="text-purple-600 text-sm font-medium">$300.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">Total Repaid to You</span>
+<span class="text-green-600 text-sm font-medium">$400.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">Total You Repaid</span>
+<span class="text-green-600 text-sm font-medium">$0.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">Currently Outstanding</span>
+<span class="text-orange-600 text-sm font-medium">$500.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">You Currently Owe</span>
+<span class="text-purple-600 text-sm font-medium">$300.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">Total Loans Made</span>
+<span class="text-slate-900 text-sm font-medium">5</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">Completed Loans</span>
+<span class="text-green-600 text-sm font-medium">2</span>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-200">
+<span class="text-slate-700 text-sm font-medium">Overall Net Position</span>
+<span class="text-orange-600 text-sm font-bold">+$200.00</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>

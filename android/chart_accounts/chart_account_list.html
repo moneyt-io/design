@@ -1,0 +1,401 @@
+<!-- NAVIGATION FLOW:
+- Back button: Returns to dashboard
+- FAB: Goes to form.html
+- Account items: Goes to detail.html or form.html for editing
+- Filters: Toggle between account types
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Chart of Accounts - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .active .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 500
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-3 justify-between">
+<button onclick="window.location.href='../components/app_drawer.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center">Chart of Accounts</h1>
+<button class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<span class="material-symbols-outlined">search</span>
+</button>
+</div>
+<div class="px-4 pb-4">
+<div class="flex gap-2 overflow-x-auto">
+<button class="flex-shrink-0 h-10 px-4 rounded-full bg-blue-500/10 text-blue-700 border border-blue-200 text-sm font-medium active">
+<span class="material-symbols-outlined text-lg mr-2">account_tree</span>
+All
+</button>
+<button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
+<span class="material-symbols-outlined text-lg mr-2">trending_up</span>
+Assets
+</button>
+<button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
+<span class="material-symbols-outlined text-lg mr-2">trending_down</span>
+Liabilities
+</button>
+<button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
+<span class="material-symbols-outlined text-lg mr-2">account_balance</span>
+Equity
+</button>
+<button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
+<span class="material-symbols-outlined text-lg mr-2">payments</span>
+Revenue
+</button>
+<button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
+<span class="material-symbols-outlined text-lg mr-2">receipt</span>
+Expenses
+</button>
+</div>
+</div>
+</header>
+
+<main class="flex-grow overflow-y-auto pb-24">
+<!-- Assets Section -->
+<div class="mt-6">
+<div class="bg-white mx-4 rounded-xl shadow-sm border border-slate-200">
+<div class="flex items-center justify-between px-4 py-3 border-b border-slate-100">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600">
+<span class="material-symbols-outlined">trending_up</span>
+</div>
+<div>
+<h3 class="text-slate-800 text-base font-semibold">Assets</h3>
+<p class="text-slate-500 text-sm">Resources owned by the business</p>
+</div>
+</div>
+<button class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">expand_less</span>
+</button>
+</div>
+
+<!-- Current Assets -->
+<div class="px-4 py-2 bg-slate-50 border-b border-slate-100">
+<p class="text-xs font-medium text-slate-600 uppercase tracking-wide">Current Assets</p>
+</div>
+
+<!-- Cash Account -->
+<div class="flex items-center px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center gap-3 flex-grow">
+<div class="w-4 h-px bg-slate-300"></div>
+<div class="flex items-center justify-center h-8 w-8 rounded-lg bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined text-lg">account_balance_wallet</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="text-slate-800 text-sm font-medium">1001 - Cash</span>
+<span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">Active</span>
+</div>
+<p class="text-slate-500 text-xs">Cash and cash equivalents</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-900 text-sm font-bold">$12,450.00</p>
+<p class="text-green-600 text-xs">Debit Balance</p>
+</div>
+<button class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100 ml-2">
+<span class="material-symbols-outlined">expand_less</span>
+</button>
+</div>
+
+<!-- Level 3: Sub-accounts under Cash -->
+<div class="bg-slate-25 border-l-4 border-blue-200 ml-6">
+<div class="flex items-center px-4 py-3 hover:bg-blue-25 border-b border-blue-100">
+<div class="flex items-center gap-3 flex-grow">
+<div class="flex items-center justify-center h-6 w-6 rounded bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined text-sm">account_balance_wallet</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="text-slate-700 text-sm font-medium">1001.1 - Petty Cash</span>
+<span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">Wallet</span>
+</div>
+<p class="text-slate-500 text-xs">Office petty cash fund</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-900 text-sm font-medium">$500.00</p>
+<p class="text-blue-600 text-xs">Debit</p>
+</div>
+</div>
+
+<div class="flex items-center px-4 py-3 hover:bg-blue-25 border-b border-blue-100">
+<div class="flex items-center gap-3 flex-grow">
+<div class="flex items-center justify-center h-6 w-6 rounded bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined text-sm">payments</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="text-slate-700 text-sm font-medium">1001.2 - Cash Register</span>
+<span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">Wallet</span>
+</div>
+<p class="text-slate-500 text-xs">Main cash register</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-900 text-sm font-medium">$1,200.00</p>
+<p class="text-blue-600 text-xs">Debit</p>
+</div>
+</div>
+</div>
+
+<!-- Bank Account -->
+<div class="flex items-center px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center gap-3 flex-grow">
+<div class="w-4 h-px bg-slate-300"></div>
+<div class="flex items-center justify-center h-8 w-8 rounded-lg bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined text-lg">account_balance</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="text-slate-800 text-sm font-medium">1010 - Bank Checking</span>
+<span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">Active</span>
+</div>
+<p class="text-slate-500 text-xs">Primary business checking account</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-900 text-sm font-bold">$25,780.50</p>
+<p class="text-green-600 text-xs">Debit Balance</p>
+</div>
+<button class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100 ml-2">
+<span class="material-symbols-outlined">expand_less</span>
+</button>
+</div>
+
+<!-- Level 3: Sub-accounts under Bank -->
+<div class="bg-slate-25 border-l-4 border-blue-200 ml-6">
+<div class="flex items-center px-4 py-3 hover:bg-blue-25 border-b border-blue-100">
+<div class="flex items-center gap-3 flex-grow">
+<div class="flex items-center justify-center h-6 w-6 rounded bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined text-sm">savings</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="text-slate-700 text-sm font-medium">1010.1 - Business Savings</span>
+<span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">Wallet</span>
+</div>
+<p class="text-slate-500 text-xs">Business savings account</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-900 text-sm font-medium">$15,000.00</p>
+<p class="text-blue-600 text-xs">Debit</p>
+</div>
+</div>
+
+<div class="flex items-center px-4 py-3 hover:bg-blue-25 border-b border-blue-100">
+<div class="flex items-center gap-3 flex-grow">
+<div class="flex items-center justify-center h-6 w-6 rounded bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined text-sm">credit_card</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="text-slate-700 text-sm font-medium">1010.2 - Credit Card</span>
+<span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">Wallet</span>
+</div>
+<p class="text-slate-500 text-xs">Business credit card</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-900 text-sm font-medium">$3,500.00</p>
+<p class="text-blue-600 text-xs">Debit</p>
+</div>
+</div>
+</div>
+
+<!-- Accounts Receivable -->
+<div class="flex items-center px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center gap-3 flex-grow">
+<div class="w-4 h-px bg-slate-300"></div>
+<div class="flex items-center justify-center h-8 w-8 rounded-lg bg-yellow-100 text-yellow-600">
+<span class="material-symbols-outlined text-lg">receipt_long</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="text-slate-800 text-sm font-medium">1200 - Accounts Receivable</span>
+<span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">Active</span>
+</div>
+<p class="text-slate-500 text-xs">Money owed by customers</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-900 text-sm font-bold">$8,920.00</p>
+<p class="text-green-600 text-xs">Debit Balance</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Liabilities Section -->
+<div class="mt-4">
+<div class="bg-white mx-4 rounded-xl shadow-sm border border-slate-200">
+<div class="flex items-center justify-between px-4 py-3 border-b border-slate-100">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-red-100 text-red-600">
+<span class="material-symbols-outlined">trending_down</span>
+</div>
+<div>
+<h3 class="text-slate-800 text-base font-semibold">Liabilities</h3>
+<p class="text-slate-500 text-sm">Debts and obligations</p>
+</div>
+</div>
+<button class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Equity Section -->
+<div class="mt-4">
+<div class="bg-white mx-4 rounded-xl shadow-sm border border-slate-200">
+<div class="flex items-center justify-between px-4 py-3 border-b border-slate-100">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-purple-100 text-purple-600">
+<span class="material-symbols-outlined">account_balance</span>
+</div>
+<div>
+<h3 class="text-slate-800 text-base font-semibold">Equity</h3>
+<p class="text-slate-500 text-sm">Owner's interest in the business</p>
+</div>
+</div>
+<button class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Revenue Section -->
+<div class="mt-4">
+<div class="bg-white mx-4 rounded-xl shadow-sm border border-slate-200">
+<div class="flex items-center justify-between px-4 py-3 border-b border-slate-100">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<h3 class="text-slate-800 text-base font-semibold">Revenue</h3>
+<p class="text-slate-500 text-sm">Income from business operations</p>
+</div>
+</div>
+<button class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+
+<!-- Expenses Section -->
+<div class="mt-4">
+<div class="bg-white mx-4 rounded-xl shadow-sm border border-slate-200">
+<div class="flex items-center justify-between px-4 py-3 border-b border-slate-100">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-orange-100 text-orange-600">
+<span class="material-symbols-outlined">receipt</span>
+</div>
+<div>
+<h3 class="text-slate-800 text-base font-semibold">Expenses</h3>
+<p class="text-slate-500 text-sm">Costs of doing business</p>
+</div>
+</div>
+<button class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100">
+<span class="material-symbols-outlined">expand_less</span>
+</button>
+</div>
+
+<!-- Operating Expenses -->
+<div class="px-4 py-2 bg-slate-50 border-b border-slate-100">
+<p class="text-xs font-medium text-slate-600 uppercase tracking-wide">Operating Expenses</p>
+</div>
+
+<!-- Office Expenses -->
+<div class="flex items-center px-4 py-3 hover:bg-slate-50 border-b border-slate-100">
+<div class="flex items-center gap-3 flex-grow">
+<div class="w-4 h-px bg-slate-300"></div>
+<div class="flex items-center justify-center h-8 w-8 rounded-lg bg-orange-100 text-orange-600">
+<span class="material-symbols-outlined text-lg">business</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="text-slate-800 text-sm font-medium">5001 - Office Expenses</span>
+<span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">Active</span>
+</div>
+<p class="text-slate-500 text-xs">General office operating costs</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-900 text-sm font-bold">$2,350.00</p>
+<p class="text-red-600 text-xs">Credit Balance</p>
+</div>
+<button class="flex items-center justify-center h-8 w-8 rounded-full text-slate-500 hover:bg-slate-100 ml-2">
+<span class="material-symbols-outlined">expand_less</span>
+</button>
+</div>
+
+<!-- Level 3: Sub-categories under Office Expenses -->
+<div class="bg-slate-25 border-l-4 border-orange-200 ml-6">
+<div class="flex items-center px-4 py-3 hover:bg-orange-25 border-b border-orange-100">
+<div class="flex items-center gap-3 flex-grow">
+<div class="flex items-center justify-center h-6 w-6 rounded bg-orange-100 text-orange-600">
+<span class="material-symbols-outlined text-sm">inventory_2</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="text-slate-700 text-sm font-medium">5001.1 - Office Supplies</span>
+<span class="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-medium">Category</span>
+</div>
+<p class="text-slate-500 text-xs">Stationery, paper, ink</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-900 text-sm font-medium">$450.00</p>
+<p class="text-orange-600 text-xs">Credit</p>
+</div>
+</div>
+
+<div class="flex items-center px-4 py-3 hover:bg-orange-25 border-b border-orange-100">
+<div class="flex items-center gap-3 flex-grow">
+<div class="flex items-center justify-center h-6 w-6 rounded bg-orange-100 text-orange-600">
+<span class="material-symbols-outlined text-sm">local_phone</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2">
+<span class="text-slate-700 text-sm font-medium">5001.2 - Communications</span>
+<span class="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-medium">Category</span>
+</div>
+<p class="text-slate-500 text-xs">Phone, internet, postal</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-slate-900 text-sm font-medium">$320.00</p>
+<p class="text-orange-600 text-xs">Credit</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+

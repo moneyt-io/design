@@ -1,0 +1,185 @@
+<!-- NAVIGATION FLOW:
+- Back button: Returns to loan_contact.html
+- Save image button: Downloads/saves the contact loan summary image
+- Share button: Activates native share functionality
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Share Contact Loans - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; }
+    }
+  </style>
+</head>
+<body class="bg-white">
+<div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+
+<!-- Header (Hidden in image) -->
+<header class="sticky top-0 z-10 bg-white border-b border-slate-200 no-print">
+<div class="flex items-center p-4 justify-between">
+<button onclick="window.location.href='loan_contact.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-slate-900 text-xl font-semibold">Share Contact Loans</h1>
+<div class="h-10 w-10"></div>
+</div>
+</header>
+
+<!-- Shareable Content Container -->
+<main class="flex-grow flex items-center justify-center p-4">
+<div id="shareableContent" class="bg-white border border-slate-200 rounded-2xl shadow-lg max-w-md w-full overflow-hidden">
+<!-- Header with Branding -->
+<div class="bg-gradient-to-r from-slate-600 to-slate-700 p-6 text-white text-center">
+<div class="flex items-center justify-center gap-2 mb-2">
+<span class="material-symbols-outlined text-2xl">account_balance</span>
+<h2 class="text-xl font-bold">MoneyT</h2>
+</div>
+<p class="text-slate-200 text-sm">Loan Summary</p>
+</div>
+
+<!-- Contact & Summary -->
+<div class="p-6 space-y-4">
+<!-- Contact Header -->
+<div class="text-center border-b border-slate-100 pb-4">
+<div class="flex items-center justify-center gap-3 mb-2">
+<div class="w-12 h-12 rounded-full bg-center bg-cover" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBsQJ3sGZpJ3q69isqWPZ2PG3Z7ZK4fUlPLXSHh5KNSwjsn9DAaq6ujCXCl1zDsx2pQA5gPbPuHp2YAZmJXzZ89ZHGGCKDGSRWfetVNp2WrJY8E96LF44DLyevbiIlKQDFfn3Lg-DGC_MYR3GTnDzOUEtfPLGwDgHTY2czlIEF_brjjlnj4tuYQ_vyRuRh2KuvbT-gWvNbffV7EKW-hhC2uRwhVFQ6sne_qU5A8L4QM23oyYTonJSom0TtnwEEx6J5r2fUG6Io0zGSR");'></div>
+<div>
+<h3 class="text-lg font-bold text-slate-900">John Doe</h3>
+<p class="text-slate-500 text-sm">Loan Summary</p>
+</div>
+</div>
+</div>
+
+<!-- Net Balance -->
+<div class="bg-orange-50 rounded-lg p-4 text-center">
+<p class="text-slate-600 text-sm">Net Balance</p>
+<p class="text-3xl font-bold text-orange-600">+$200.00</p>
+<p class="text-slate-500 text-sm mt-1">You are owed</p>
+</div>
+
+<!-- Loan Breakdown -->
+<div class="grid grid-cols-2 gap-3">
+<div class="bg-orange-100 rounded-lg p-3 text-center">
+<div class="flex items-center justify-center gap-1 mb-1">
+<span class="material-symbols-outlined text-orange-600 text-sm">call_made</span>
+<span class="text-xs font-medium text-orange-700">You Lent</span>
+</div>
+<p class="text-lg font-bold text-orange-600">$500.00</p>
+<p class="text-xs text-orange-600">1 active</p>
+</div>
+<div class="bg-purple-100 rounded-lg p-3 text-center">
+<div class="flex items-center justify-center gap-1 mb-1">
+<span class="material-symbols-outlined text-purple-600 text-sm">call_received</span>
+<span class="text-xs font-medium text-purple-700">You Borrowed</span>
+</div>
+<p class="text-lg font-bold text-purple-600">$300.00</p>
+<p class="text-xs text-purple-600">1 active</p>
+</div>
+</div>
+
+<!-- Active Loans List -->
+<div class="space-y-3">
+<h4 class="text-sm font-semibold text-slate-700">Active Loans (2)</h4>
+
+<!-- Lent Loan -->
+<div class="flex items-center gap-3 p-3 bg-orange-50 rounded-lg">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-orange-100 text-orange-600">
+<span class="material-symbols-outlined text-sm">call_made</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-slate-800">Emergency Loan</span>
+<span class="text-sm font-bold text-orange-600">$500.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500">Due: Jan 15, 2025</span>
+<span class="text-xs text-orange-600">20% paid</span>
+</div>
+</div>
+</div>
+
+<!-- Borrowed Loan -->
+<div class="flex items-center gap-3 p-3 bg-purple-50 rounded-lg">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-purple-100 text-purple-600">
+<span class="material-symbols-outlined text-sm">call_received</span>
+</div>
+<div class="flex-grow">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-slate-800">Car Repair Fund</span>
+<span class="text-sm font-bold text-purple-600">$300.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-xs text-slate-500">Due: Dec 30, 2024</span>
+<span class="text-xs text-purple-600">17% paid</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Summary Stats -->
+<div class="border-t border-slate-100 pt-4 text-center">
+<p class="text-slate-500 text-xs">Total Active: 2 loans</p>
+<p class="text-slate-400 text-xs mt-1">Generated on Dec 16, 2024</p>
+</div>
+</div>
+
+<!-- Footer Branding -->
+<div class="bg-slate-50 px-6 py-3 text-center border-t border-slate-100">
+<p class="text-slate-500 text-xs">Powered by MoneyT • moneyt.app</p>
+</div>
+</div>
+</main>
+
+<!-- Action Buttons (Hidden in image) -->
+<footer class="sticky bottom-0 bg-white border-t border-slate-200 px-4 py-3 no-print">
+<div class="flex gap-3">
+<button onclick="saveAsImage()" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
+<span class="truncate">Save Image</span>
+</button>
+<button onclick="shareNative()" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-slate-200 text-slate-700 text-sm font-medium leading-normal tracking-tight hover:bg-slate-300">
+<span class="truncate">Share</span>
+</button>
+</div>
+</footer>
+</div>
+
+<script>
+function saveAsImage() {
+    alert('Contact loan summary saved to device gallery!\n\nIn a real app, this would:\n• Capture the contact summary as PNG/JPG\n• Save to device gallery\n• Show success notification');
+    
+    setTimeout(() => {
+        window.location.href = 'loan_contact.html';
+    }, 2000);
+}
+
+function shareNative() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'MoneyT Contact Loan Summary',
+            text: 'Loan Summary with John Doe - Net balance: +$200.00 (2 active loans)',
+            url: window.location.href
+        }).then(() => {
+            window.location.href = 'loan_contact.html';
+        }).catch(console.error);
+    } else {
+        alert('Share functionality: Contact loan summary copied to clipboard!\n\nIn a real app, this would use the native share system.');
+        setTimeout(() => {
+            window.location.href = 'loan_contact.html';
+        }, 1500);
+    }
+}
+</script>
+</body></html>
