@@ -1,0 +1,190 @@
+<!-- NAVIGATION FLOW:
+- Back button: Returns to calling form
+- Currency items: Select and return to form
+- Search functionality for filtering currencies
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Select Currency - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-3">
+<button onclick="window.location.href='../wallets/wallet_form.html'" class="text-slate-700 p-2 -ml-2">
+<span class="material-symbols-outlined text-2xl">close</span>
+</button>
+<h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center pr-8">Select Currency</h1>
+</div>
+</header>
+
+<main class="flex-grow overflow-y-auto">
+<!-- Search -->
+<div class="px-4 pb-4">
+<div class="relative">
+<span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400">
+<span class="material-symbols-outlined text-lg">search</span>
+</span>
+<input class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-12 pl-12 pr-4 text-base font-normal leading-normal" placeholder="Search currencies..." type="text"/>
+</div>
+</div>
+
+<!-- Popular Currencies -->
+<div class="px-4 mb-6">
+<h3 class="text-slate-800 text-sm font-semibold mb-3">Popular</h3>
+<div class="space-y-2">
+<!-- USD -->
+<button onclick="selectCurrency('USD')" class="w-full flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-200 hover:bg-blue-50 hover:border-blue-300">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600">
+<span class="text-sm font-bold">$</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">USD</p>
+<p class="text-slate-500 text-sm">US Dollar</p>
+</div>
+<span class="material-symbols-outlined text-blue-600 opacity-0" id="check-USD">check</span>
+</button>
+
+<!-- EUR -->
+<button onclick="selectCurrency('EUR')" class="w-full flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-200 hover:bg-blue-50 hover:border-blue-300">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600">
+<span class="text-sm font-bold">€</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">EUR</p>
+<p class="text-slate-500 text-sm">Euro</p>
+</div>
+<span class="material-symbols-outlined text-blue-600 opacity-0" id="check-EUR">check</span>
+</button>
+
+<!-- GBP -->
+<button onclick="selectCurrency('GBP')" class="w-full flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-200 hover:bg-blue-50 hover:border-blue-300">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-purple-100 text-purple-600">
+<span class="text-sm font-bold">£</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">GBP</p>
+<p class="text-slate-500 text-sm">British Pound</p>
+</div>
+<span class="material-symbols-outlined text-blue-600 opacity-0" id="check-GBP">check</span>
+</button>
+</div>
+</div>
+
+<!-- All Currencies -->
+<div class="px-4">
+<h3 class="text-slate-800 text-sm font-semibold mb-3">All Currencies</h3>
+<div class="space-y-2">
+<!-- JPY -->
+<button onclick="selectCurrency('JPY')" class="w-full flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-200 hover:bg-blue-50 hover:border-blue-300">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-red-100 text-red-600">
+<span class="text-sm font-bold">¥</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">JPY</p>
+<p class="text-slate-500 text-sm">Japanese Yen</p>
+</div>
+<span class="material-symbols-outlined text-blue-600 opacity-0" id="check-JPY">check</span>
+</button>
+
+<!-- CAD -->
+<button onclick="selectCurrency('CAD')" class="w-full flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-200 hover:bg-blue-50 hover:border-blue-300">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-orange-100 text-orange-600">
+<span class="text-sm font-bold">C$</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">CAD</p>
+<p class="text-slate-500 text-sm">Canadian Dollar</p>
+</div>
+<span class="material-symbols-outlined text-blue-600 opacity-0" id="check-CAD">check</span>
+</button>
+
+<!-- AUD -->
+<button onclick="selectCurrency('AUD')" class="w-full flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-200 hover:bg-blue-50 hover:border-blue-300">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-teal-100 text-teal-600">
+<span class="text-sm font-bold">A$</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">AUD</p>
+<p class="text-slate-500 text-sm">Australian Dollar</p>
+</div>
+<span class="material-symbols-outlined text-blue-600 opacity-0" id="check-AUD">check</span>
+</button>
+
+<!-- CHF -->
+<button onclick="selectCurrency('CHF')" class="w-full flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-200 hover:bg-blue-50 hover:border-blue-300">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-slate-100 text-slate-600">
+<span class="text-sm font-bold">₣</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">CHF</p>
+<p class="text-slate-500 text-sm">Swiss Franc</p>
+</div>
+<span class="material-symbols-outlined text-blue-600 opacity-0" id="check-CHF">check</span>
+</button>
+
+<!-- MXN -->
+<button onclick="selectCurrency('MXN')" class="w-full flex items-center gap-3 p-3 rounded-lg bg-white border border-slate-200 hover:bg-blue-50 hover:border-blue-300">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-yellow-100 text-yellow-600">
+<span class="text-sm font-bold">$</span>
+</div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-medium">MXN</p>
+<p class="text-slate-500 text-sm">Mexican Peso</p>
+</div>
+<span class="material-symbols-outlined text-blue-600 opacity-0" id="check-MXN">check</span>
+</button>
+</div>
+</div>
+
+<div class="h-20"></div>
+</main>
+</div>
+</div>
+
+<script>
+let selectedCurrency = 'USD'; // Default selection
+
+function selectCurrency(currencyCode) {
+    // Remove previous selection
+    document.querySelectorAll('[id^="check-"]').forEach(el => {
+        el.classList.add('opacity-0');
+    });
+    
+    // Add selection to clicked item
+    const checkIcon = document.getElementById(`check-${currencyCode}`);
+    if (checkIcon) {
+        checkIcon.classList.remove('opacity-0');
+    }
+    
+    selectedCurrency = currencyCode;
+    
+    // Wait a moment to show selection, then navigate
+    setTimeout(() => {
+        window.location.href = '../wallets/wallet_form.html';
+    }, 300);
+}
+
+// Initialize with USD selected
+document.addEventListener('DOMContentLoaded', function() {
+    const checkIcon = document.getElementById('check-USD');
+    if (checkIcon) {
+        checkIcon.classList.remove('opacity-0');
+    }
+});
+</script>
+</body></html>

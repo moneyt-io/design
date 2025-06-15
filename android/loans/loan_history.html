@@ -34,27 +34,45 @@
 <span class="material-symbols-outlined">arrow_back_ios_new</span>
 </button>
 <h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center">Loan History</h1>
-<button onclick="window.location.href='loan_detail_share.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<button onclick="window.location.href='loan_contact_share.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
 <span class="material-symbols-outlined">share</span>
 </button>
 </div>
-<div class="px-4 pb-4">
+
+<!-- Filter Section -->
+<div class="px-4 pb-4 space-y-3">
+<!-- Quick Filter Tabs -->
 <div class="flex gap-2 overflow-x-auto">
 <button class="flex-shrink-0 h-10 px-4 rounded-full bg-blue-500/10 text-blue-700 border border-blue-200 text-sm font-medium active">
-<span class="material-symbols-outlined text-lg mr-2">history</span>
+<span class="material-symbols-outlined text-sm mr-2">history</span>
 All
 </button>
 <button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
-<span class="material-symbols-outlined text-lg mr-2">call_made</span>
+<span class="material-symbols-outlined text-sm mr-2">call_made</span>
 Lent
 </button>
 <button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
-<span class="material-symbols-outlined text-lg mr-2">call_received</span>
+<span class="material-symbols-outlined text-sm mr-2">call_received</span>
 Borrowed
 </button>
 <button class="flex-shrink-0 h-10 px-4 rounded-full bg-slate-100 text-slate-600 border border-slate-200 text-sm font-medium hover:bg-slate-200">
-<span class="material-symbols-outlined text-lg mr-2">check_circle</span>
+<span class="material-symbols-outlined text-sm mr-2">check_circle</span>
 Completed
+</button>
+</div>
+
+<!-- Active Filters -->
+<div class="flex gap-2 overflow-x-auto">
+<div class="flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full text-xs font-medium flex-shrink-0">
+<span class="material-symbols-outlined text-sm">calendar_today</span>
+<span>This Month</span>
+<button class="text-blue-700 hover:text-blue-800">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+<button onclick="window.location.href='loan_dialog_filters.html'" class="flex items-center gap-1 text-slate-500 hover:text-slate-700 px-2 py-1 text-xs font-medium flex-shrink-0">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add Filter</span>
 </button>
 </div>
 </div>
@@ -72,63 +90,6 @@ Completed
 <div class="text-right">
 <p class="text-slate-900 text-lg font-bold">$900.00</p>
 <p class="text-slate-500 text-xs">Total loaned</p>
-</div>
-</div>
-</div>
-
-<!-- Active Loans Section -->
-<div class="mt-6">
-<div class="px-4 mb-3">
-<h3 class="text-slate-800 text-base font-semibold">Active Loans</h3>
-</div>
-
-<div class="bg-white mx-4 mb-3 rounded-lg shadow-sm border border-slate-200">
-<div class="flex items-center px-4 py-4 hover:bg-slate-50 cursor-pointer" onclick="window.location.href='loan_detail.html'">
-<div class="flex items-center justify-center h-12 w-12 rounded-full bg-orange-100 text-orange-600 mr-3">
-<span class="material-symbols-outlined">call_made</span>
-</div>
-<div class="flex-grow">
-<div class="flex items-center justify-between mb-1">
-<h4 class="text-slate-800 text-base font-semibold">Emergency Loan</h4>
-<p class="text-orange-600 text-lg font-bold">$500.00</p>
-</div>
-<div class="flex items-center gap-2 text-sm text-slate-500">
-<span class="material-symbols-outlined text-sm">account_balance_wallet</span>
-<span>Chase Checking</span>
-<span>•</span>
-<span class="material-symbols-outlined text-sm">schedule</span>
-<span>Due: Jan 15, 2025</span>
-</div>
-<div class="flex items-center gap-2 mt-1">
-<span class="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-medium">You Lent</span>
-<span class="text-slate-400 text-xs">Dec 15, 2024</span>
-</div>
-</div>
-</div>
-</div>
-
-<div class="bg-white mx-4 mb-3 rounded-lg shadow-sm border border-slate-200">
-<div class="flex items-center px-4 py-4 hover:bg-slate-50 cursor-pointer" onclick="window.location.href='loan_detail.html'">
-<div class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 text-purple-600 mr-3">
-<span class="material-symbols-outlined">call_received</span>
-</div>
-<div class="flex-grow">
-<div class="flex items-center justify-between mb-1">
-<h4 class="text-slate-800 text-base font-semibold">Car Repair Fund</h4>
-<p class="text-purple-600 text-lg font-bold">$300.00</p>
-</div>
-<div class="flex items-center gap-2 text-sm text-slate-500">
-<span class="material-symbols-outlined text-sm">payments</span>
-<span>Cash Wallet</span>
-<span>•</span>
-<span class="material-symbols-outlined text-sm">schedule</span>
-<span>Due: Dec 30, 2024</span>
-</div>
-<div class="flex items-center gap-2 mt-1">
-<span class="bg-purple-100 text-purple-700 px-2 py-1 rounded-full text-xs font-medium">You Borrowed</span>
-<span class="text-red-500 text-xs font-medium">Due soon</span>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -193,9 +154,31 @@ Completed
 <!-- Summary Stats -->
 <div class="bg-white mt-4 mx-4 rounded-xl shadow-sm">
 <div class="px-4 py-3 border-b border-slate-100">
-<h3 class="text-slate-800 text-base font-semibold">Complete History Summary</h3>
+<div class="flex items-center justify-between">
+<h3 class="text-slate-800 text-base font-semibold">History Summary</h3>
+<button id="toggleSummary" onclick="toggleSummaryDetails()" class="flex items-center gap-1 text-blue-600 hover:text-blue-700 text-sm font-medium">
+<span class="text-xs">View Details</span>
+<span id="toggleIcon" class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
 </div>
 <div class="p-4 space-y-3">
+<!-- Essential Summary (Always Visible) -->
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">Currently Outstanding</span>
+<span class="text-orange-600 text-sm font-medium">$500.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">You Currently Owe</span>
+<span class="text-purple-600 text-sm font-medium">$300.00</span>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-slate-200">
+<span class="text-slate-700 text-sm font-medium">Net Position</span>
+<span class="text-orange-600 text-lg font-bold">+$200.00</span>
+</div>
+
+<!-- Detailed Summary (Hidden by default) -->
+<div id="detailedSummary" class="hidden border-t border-slate-200 pt-3 space-y-3">
 <div class="flex items-center justify-between">
 <span class="text-slate-600 text-sm">Total Ever Lent</span>
 <span class="text-orange-600 text-sm font-medium">$900.00</span>
@@ -213,14 +196,6 @@ Completed
 <span class="text-green-600 text-sm font-medium">$0.00</span>
 </div>
 <div class="flex items-center justify-between">
-<span class="text-slate-600 text-sm">Currently Outstanding</span>
-<span class="text-orange-600 text-sm font-medium">$500.00</span>
-</div>
-<div class="flex items-center justify-between">
-<span class="text-slate-600 text-sm">You Currently Owe</span>
-<span class="text-purple-600 text-sm font-medium">$300.00</span>
-</div>
-<div class="flex items-center justify-between">
 <span class="text-slate-600 text-sm">Total Loans Made</span>
 <span class="text-slate-900 text-sm font-medium">5</span>
 </div>
@@ -228,13 +203,29 @@ Completed
 <span class="text-slate-600 text-sm">Completed Loans</span>
 <span class="text-green-600 text-sm font-medium">2</span>
 </div>
-<div class="flex items-center justify-between pt-2 border-t border-slate-200">
-<span class="text-slate-700 text-sm font-medium">Overall Net Position</span>
-<span class="text-orange-600 text-sm font-bold">+$200.00</span>
 </div>
 </div>
 </div>
 </main>
 </div>
 </div>
+<script>
+function toggleSummaryDetails() {
+    const detailedSummary = document.getElementById('detailedSummary');
+    const toggleIcon = document.getElementById('toggleIcon');
+    const toggleButton = document.getElementById('toggleSummary');
+    
+    if (detailedSummary.classList.contains('hidden')) {
+        // Show details
+        detailedSummary.classList.remove('hidden');
+        toggleIcon.textContent = 'expand_less';
+        toggleButton.querySelector('.text-xs').textContent = 'Hide Details';
+    } else {
+        // Hide details
+        detailedSummary.classList.add('hidden');
+        toggleIcon.textContent = 'expand_more';
+        toggleButton.querySelector('.text-xs').textContent = 'View Details';
+    }
+}
+</script>
 </body></html>

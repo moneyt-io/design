@@ -51,16 +51,16 @@
 </div>
 
 <!-- Currency Selection -->
-<div class="space-y-3">
-<label class="text-sm font-medium text-slate-700">Currency</label>
-<button class="flex items-center justify-between w-full px-4 py-3 rounded-lg border border-slate-300 bg-slate-50 text-slate-700 hover:border-blue-300 hover:bg-blue-50">
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-slate-50 text-xs text-slate-500">Currency</label>
+<button onclick="window.location.href='../components/currency_dialog.html'" class="form-input w-full rounded-lg border-slate-300 bg-slate-50 text-slate-900 h-14 px-4 text-base font-normal leading-normal flex items-center justify-between">
 <div class="flex items-center gap-3">
-<span class="text-xl">$</span>
-<div class="text-left">
-<p class="text-sm font-medium">USD - US Dollar</p>
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-green-100 text-green-600">
+<span class="text-sm font-bold">$</span>
 </div>
+<span class="text-slate-900 font-medium">USD - US Dollar</span>
 </div>
-<span class="material-symbols-outlined">expand_more</span>
+<span class="material-symbols-outlined text-slate-400">expand_more</span>
 </button>
 </div>
 

@@ -1,5 +1,5 @@
 <!-- NAVIGATION FLOW:
-- Back button: Returns to settings/list.html
+- Back button: Returns to settings/settings.html
 - Language selection: Updates app language
 - Save button: Applies language change
 -->
@@ -30,7 +30,7 @@
 <div class="flex-grow">
 <header class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-md">
 <div class="flex items-center p-4 pb-3 justify-between">
-<button onclick="window.location.href='list.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<button onclick="window.location.href='settings.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
 <span class="material-symbols-outlined">arrow_back_ios_new</span>
 </button>
 <h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center">Language</h1>
@@ -39,20 +39,30 @@
 </header>
 
 <main class="flex-grow overflow-y-auto pb-6">
-<!-- Info -->
-<div class="bg-blue-50 border border-blue-200 rounded-lg mx-4 mt-4 p-4">
-<div class="flex items-start gap-3">
-<div class="flex items-center justify-center h-8 w-8 rounded-full bg-blue-100 text-blue-600 mt-0.5">
-<span class="material-symbols-outlined text-lg">info</span>
+<!-- System Language (Moved to top) -->
+<div class="bg-white mt-4 mx-4 rounded-xl shadow-sm">
+<div class="px-4 py-3 border-b border-slate-100">
+<h3 class="text-slate-800 text-sm font-semibold uppercase tracking-wide">System</h3>
 </div>
-<div class="flex-grow">
-<p class="text-blue-700 text-sm leading-relaxed">The app will restart after changing the language to apply the new settings.</p>
+<div class="p-1">
+<button class="flex items-center gap-4 w-full px-3 py-4 hover:bg-slate-50 rounded-lg">
+<div class="flex items-center justify-center h-12 w-12 rounded-full bg-slate-100 text-slate-600">
+<span class="material-symbols-outlined">smartphone</span>
 </div>
+<div class="flex-grow text-left">
+<p class="text-slate-800 text-base font-semibold">Use system language</p>
+<p class="text-slate-500 text-sm">Follow device language settings</p>
+</div>
+<div class="flex items-center justify-center h-6 w-6 rounded-full border-2 border-slate-300"></div>
+</button>
 </div>
 </div>
 
 <!-- Language Options -->
-<div class="bg-white mt-6 mx-4 rounded-xl shadow-sm">
+<div class="bg-white mt-4 mx-4 rounded-xl shadow-sm">
+<div class="px-4 py-3 border-b border-slate-100">
+<h3 class="text-slate-800 text-sm font-semibold uppercase tracking-wide">Available Languages</h3>
+</div>
 <div class="p-1">
 <!-- English (Selected) -->
 <button class="flex items-center gap-4 w-full px-3 py-4 hover:bg-slate-50 rounded-lg">
@@ -153,31 +163,12 @@
 </button>
 </div>
 </div>
-
-<!-- System Language -->
-<div class="bg-white mt-4 mx-4 rounded-xl shadow-sm">
-<div class="px-4 py-3 border-b border-slate-100">
-<h3 class="text-slate-800 text-sm font-semibold uppercase tracking-wide">System</h3>
-</div>
-<div class="p-1">
-<button class="flex items-center gap-4 w-full px-3 py-4 hover:bg-slate-50 rounded-lg">
-<div class="flex items-center justify-center h-12 w-12 rounded-full bg-slate-100 text-slate-600">
-<span class="material-symbols-outlined">smartphone</span>
-</div>
-<div class="flex-grow text-left">
-<p class="text-slate-800 text-base font-semibold">Use system language</p>
-<p class="text-slate-500 text-sm">Follow device language settings</p>
-</div>
-<div class="flex items-center justify-center h-6 w-6 rounded-full border-2 border-slate-300"></div>
-</button>
-</div>
-</div>
 </main>
 </div>
 
 <!-- Apply Button -->
 <footer class="sticky bottom-0 bg-slate-50/80 backdrop-blur-md px-4 py-3 border-t border-slate-200">
-<button onclick="window.location.href='list.html'" class="w-full min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
+<button onclick="window.location.href=settings.html" class="w-full min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
 <span class="truncate">Apply Language</span>
 </button>
 </footer>

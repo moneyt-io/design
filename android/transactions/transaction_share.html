@@ -113,8 +113,8 @@
 <!-- Action Buttons (Hidden in image) -->
 <footer class="sticky bottom-0 bg-white border-t border-slate-200 px-4 py-3 no-print">
 <div class="flex gap-3">
-<button onclick="saveAsImage()" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
-<span class="truncate">Save Image</span>
+<button onclick="copyText()" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
+<span class="truncate">Copy Text</span>
 </button>
 <button onclick="shareNative()" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-slate-200 text-slate-700 text-sm font-medium leading-normal tracking-tight hover:bg-slate-300">
 <span class="truncate">Share</span>
@@ -124,12 +124,34 @@
 </div>
 
 <script>
-function saveAsImage() {
-    alert('Image saved to device gallery!\n\nIn a real app, this would:\n• Capture the receipt as PNG/JPG\n• Save to device gallery\n• Show success notification');
+function copyText() {
+    const textContent = `
+MoneyT - Transaction Receipt
+
+Amount: -$45.67
+Expense Transaction
+
+Description: Lunch at Pizza Corner
+Category: Food & Dining
+Date: Dec 15, 2024
+Time: 2:30 PM
+Payment Method: Chase Sapphire
+Contact: Pizza Corner Restaurant
+
+Transaction ID: TXN-2024-001247
+Generated on Dec 15, 2024 at 3:45 PM
+Powered by MoneyT • moneyt.app
+    `.trim();
+    
+    navigator.clipboard.writeText(textContent).then(() => {
+        alert('Transaction details copied to clipboard!');
+    }).catch(() => {
+        alert('Could not copy to clipboard. Please try again.');
+    });
     
     setTimeout(() => {
         window.location.href = 'transactions_detail.html';
-    }, 2000);
+    }, 1500);
 }
 
 function shareNative() {

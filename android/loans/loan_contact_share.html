@@ -146,8 +146,8 @@
 <!-- Action Buttons (Hidden in image) -->
 <footer class="sticky bottom-0 bg-white border-t border-slate-200 px-4 py-3 no-print">
 <div class="flex gap-3">
-<button onclick="saveAsImage()" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
-<span class="truncate">Save Image</span>
+<button onclick="copyText()" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-sm hover:bg-blue-600">
+<span class="truncate">Copy Text</span>
 </button>
 <button onclick="shareNative()" class="flex-1 min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-slate-200 text-slate-700 text-sm font-medium leading-normal tracking-tight hover:bg-slate-300">
 <span class="truncate">Share</span>
@@ -157,12 +157,36 @@
 </div>
 
 <script>
-function saveAsImage() {
-    alert('Contact loan summary saved to device gallery!\n\nIn a real app, this would:\n• Capture the contact summary as PNG/JPG\n• Save to device gallery\n• Show success notification');
+function copyText() {
+    const textContent = `
+MoneyT - Loan Summary
+
+John Doe
+Loan Summary
+
+Net Balance: +$200.00 (You are owed)
+
+You Lent: $500.00 (1 active)
+You Borrowed: $300.00 (1 active)
+
+Active Loans (2):
+• Emergency Loan: $500.00 (Due: Jan 15, 2025) - 20% paid
+• Car Repair Fund: $300.00 (Due: Dec 30, 2024) - 17% paid
+
+Total Active: 2 loans
+Generated on Dec 16, 2024
+Powered by MoneyT • moneyt.app
+    `.trim();
+    
+    navigator.clipboard.writeText(textContent).then(() => {
+        alert('Contact loan summary copied to clipboard!');
+    }).catch(() => {
+        alert('Could not copy to clipboard. Please try again.');
+    });
     
     setTimeout(() => {
-        window.location.href = 'loan_contact.html';
-    }, 2000);
+        window.location.href = 'loan_detail_contact.html';
+    }, 1500);
 }
 
 function shareNative() {
@@ -172,12 +196,12 @@ function shareNative() {
             text: 'Loan Summary with John Doe - Net balance: +$200.00 (2 active loans)',
             url: window.location.href
         }).then(() => {
-            window.location.href = 'loan_contact.html';
+            window.location.href = 'loan_detail_contact.html';
         }).catch(console.error);
     } else {
         alert('Share functionality: Contact loan summary copied to clipboard!\n\nIn a real app, this would use the native share system.');
         setTimeout(() => {
-            window.location.href = 'loan_contact.html';
+            window.location.href = 'loan_detail_contact.html';
         }, 1500);
     }
 }

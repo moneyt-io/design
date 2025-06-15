@@ -1,0 +1,469 @@
+<!-- NAVIGATION FLOW:
+- Back button: Returns to settings/settings.html or profile.html
+- Plan selection: Updates pricing and features
+- Billing toggle: Switches between monthly/yearly
+- Coupon input: Applies discount codes
+- Subscribe button: Goes to payment flow
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Subscription - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .active .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 500
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-3 justify-between">
+<button onclick="window.location.href='profile.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center">Subscription</h1>
+<div class="h-10 w-10"></div>
+</div>
+</header>
+
+<main class="flex-grow overflow-y-auto pb-20">
+<!-- Header Info -->
+<div class="text-center px-4 mt-6 mb-6">
+<div class="flex items-center justify-center h-16 w-16 rounded-2xl bg-gradient-to-br from-[#4ae3b5] to-[#36d399] text-white mx-auto mb-3">
+<span class="material-symbols-outlined text-2xl">workspace_premium</span>
+</div>
+<h2 class="text-slate-800 text-lg font-bold mb-1">Upgrade to MoneyT Cloud</h2>
+<p class="text-slate-500 text-sm">Unlock powerful features and sync your data across all devices.</p>
+</div>
+
+<!-- Plans Comparison with Integrated Billing Toggle -->
+<div class="mx-4">
+<div class="flex items-center justify-between mb-3">
+<h3 class="text-slate-800 text-base font-semibold">Choose Your Plan</h3>
+<!-- Compact Billing Toggle -->
+<div class="bg-slate-100 rounded-full p-0.5 flex items-center">
+<button id="monthlyBtn" class="billing-toggle px-2 py-1 rounded-full text-xs font-medium transition-all active bg-white text-slate-900 shadow-sm">
+Monthly
+</button>
+<button id="yearlyBtn" class="billing-toggle px-2 py-1 rounded-full text-xs font-medium transition-all text-slate-600 hover:text-slate-900">
+Yearly
+</button>
+</div>
+</div>
+
+<!-- Plans Carousel -->
+<div class="relative">
+<!-- Carousel Container -->
+<div class="overflow-hidden rounded-xl">
+<div class="flex gap-4 transition-transform duration-300 ease-in-out" id="plansCarousel">
+
+<!-- Free Plan -->
+<div class="plan-card min-w-full bg-white rounded-xl shadow-sm border-2 border-slate-200 p-4 cursor-pointer transition-all hover:border-slate-300">
+<div class="text-center mb-3">
+<div class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-slate-100 text-slate-600 mb-2">
+<span class="material-symbols-outlined text-lg">workspace_premium</span>
+</div>
+<h3 class="text-lg font-bold text-slate-900 mb-1">Free Plan</h3>
+<p class="text-slate-500 text-sm mb-3">Perfect for personal use</p>
+<div class="mb-3">
+<div class="text-2xl font-bold text-slate-900">$0</div>
+<div class="text-slate-500 text-sm">forever</div>
+</div>
+</div>
+
+<div class="space-y-2 mb-4">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-4 w-4 rounded-full bg-green-100">
+<span class="material-symbols-outlined text-green-600 text-xs">check</span>
+</div>
+<span class="text-slate-700 text-sm">All features work offline</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-4 w-4 rounded-full bg-green-100">
+<span class="material-symbols-outlined text-green-600 text-xs">check</span>
+</div>
+<span class="text-slate-700 text-sm">Local backups</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-4 w-4 rounded-full bg-green-100">
+<span class="material-symbols-outlined text-green-600 text-xs">check</span>
+</div>
+<span class="text-slate-700 text-sm">One device</span>
+</div>
+</div>
+
+<div class="border-t border-slate-100 pt-3">
+<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700">
+Current Plan
+</span>
+</div>
+</div>
+
+<!-- Cloud Plan -->
+<div class="plan-card min-w-full bg-gradient-to-br from-[#4ae3b5] to-[#36d399] text-white rounded-xl shadow-lg border-2 border-[#4ae3b5] p-4 cursor-pointer transition-all relative overflow-hidden">
+<div class="absolute top-3 right-3">
+<span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-white/20 text-white">
+<span class="material-symbols-outlined text-xs mr-1">star</span>
+Recommended
+</span>
+</div>
+
+<div class="text-center mb-3">
+<div class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-white/20 text-white mb-2">
+<span class="material-symbols-outlined text-lg">cloud_sync</span>
+</div>
+<h3 class="text-lg font-bold mb-1">MoneyT Cloud</h3>
+<p class="text-green-100 text-sm mb-3">Full-featured experience</p>
+<div class="mb-3">
+<div class="text-2xl font-bold" id="cloudPrice">$15.00</div>
+<div class="text-green-100 text-sm" id="cloudPeriod">/month</div>
+</div>
+</div>
+
+<div class="space-y-2 mb-4">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-4 w-4 rounded-full bg-white/20">
+<span class="material-symbols-outlined text-white text-xs">check</span>
+</div>
+<span class="text-white text-sm">Everything in Free</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-4 w-4 rounded-full bg-white/20">
+<span class="material-symbols-outlined text-white text-xs">check</span>
+</div>
+<span class="text-white text-sm">Cloud sync across devices</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center h-4 w-4 rounded-full bg-white/20">
+<span class="material-symbols-outlined text-white text-xs">check</span>
+</div>
+<span class="text-white text-sm">Open Banking connections</span>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- Carousel Indicators -->
+<div class="flex justify-center mt-3 gap-2">
+<button class="carousel-indicator w-2 h-2 rounded-full bg-[#4ae3b5] transition-all" data-slide="0"></button>
+<button class="carousel-indicator w-2 h-2 rounded-full bg-slate-300 transition-all" data-slide="1"></button>
+</div>
+
+<!-- Navigation Arrows -->
+<button class="carousel-nav-prev absolute left-2 top-1/2 transform -translate-y-1/2 flex items-center justify-center h-8 w-8 rounded-full bg-white shadow-lg border border-slate-200 text-slate-600 hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="carousel-nav-next absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center justify-center h-8 w-8 rounded-full bg-white shadow-lg border border-slate-200 text-slate-600 hover:bg-slate-50">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+
+<!-- Enhanced Coupon Section -->
+<div class="mx-4 mt-4">
+<div class="bg-gradient-to-r from-slate-50 to-slate-100 border border-slate-200 rounded-xl shadow-sm p-4">
+<div class="flex items-center gap-2 mb-3">
+<div class="flex items-center justify-center h-8 w-8 rounded-full bg-slate-100 text-slate-600">
+<span class="material-symbols-outlined text-sm">local_offer</span>
+</div>
+<h3 class="text-slate-800 text-sm font-semibold">Have a coupon code?</h3>
+</div>
+<div class="flex gap-2 mb-3">
+<div class="flex-grow">
+<input 
+  id="couponInput"
+  type="text" 
+  placeholder="Enter coupon code" 
+  class="form-input w-full rounded-lg border-slate-300 bg-white text-slate-900 placeholder-slate-400 focus:border-slate-500 focus:ring-slate-500 h-10 px-3 text-sm font-normal leading-normal"
+/>
+</div>
+<button 
+  id="applyCouponBtn"
+  onclick="applyCoupon()"
+  class="px-4 py-2 rounded-lg bg-slate-500 text-white text-sm font-medium hover:bg-slate-600 transition-colors"
+>
+  Apply
+</button>
+</div>
+<div id="couponMessage" class="text-sm hidden mb-2"></div>
+<div class="flex items-center justify-between">
+<p class="text-slate-600 text-xs">Find your regional discount coupon here</p>
+<a href="https://moneyt.io/coupons" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-slate-600 hover:text-slate-700 text-xs font-medium">
+<span>Get</span>
+<span class="material-symbols-outlined text-xs">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+
+<!-- Price Summary -->
+<div id="priceSummary" class="mx-4 mt-4 hidden">
+<div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+<h3 class="text-blue-800 text-sm font-semibold mb-2">Price Summary</h3>
+<div class="space-y-1">
+<div class="flex justify-between items-center text-sm">
+<span class="text-blue-700">MoneyT Cloud</span>
+<span class="text-blue-900 font-medium" id="originalPrice">$4.99/month</span>
+</div>
+<div id="discountRow" class="flex justify-between items-center text-sm hidden">
+<span class="text-green-700">Discount</span>
+<span class="text-green-600 font-medium" id="discountAmount">-$1.00</span>
+</div>
+<div class="border-t border-blue-200 pt-1 flex justify-between items-center">
+<span class="text-blue-800 font-semibold text-sm">Total</span>
+<span class="text-blue-900 font-bold" id="finalPrice">$4.99</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+<!-- Subscribe Button - Sticky -->
+<footer class="sticky bottom-0 bg-slate-50/80 backdrop-blur-md px-4 py-3 border-t border-slate-200">
+<button 
+  id="subscribeBtn"
+  onclick="subscribe()"
+  class="w-full min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-gradient-to-r from-[#4ae3b5] to-[#36d399] text-white text-sm font-medium leading-normal tracking-tight shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
+>
+<span class="truncate">Upgrade to Cloud - $4.99/month</span>
+</button>
+</footer>
+
+<script>
+let selectedPlan = 'cloud';
+let billingPeriod = 'monthly';
+let appliedCoupon = null;
+
+// Updated Pricing
+const pricing = {
+  monthly: { cloud: 15.00 },
+  yearly: { cloud: 180.00 } // 20% discount (normal would be 180)
+ };
+
+// Sample coupons
+const coupons = {
+  'WELCOME20': { discount: 0.20, type: 'percentage', description: '20% off first month' },
+  'SAVE5': { discount: 5.00, type: 'fixed', description: '$5 off' },
+  'STUDENT': { discount: 0.50, type: 'percentage', description: '50% off for students' }
+};
+
+// Billing toggle
+document.getElementById('monthlyBtn').addEventListener('click', () => setBilling('monthly'));
+document.getElementById('yearlyBtn').addEventListener('click', () => setBilling('yearly'));
+
+function setBilling(period) {
+  billingPeriod = period;
+  
+  // Update toggle UI
+  document.querySelectorAll('.billing-toggle').forEach(btn => {
+    btn.classList.remove('active', 'bg-white', 'text-slate-900', 'shadow-sm');
+    btn.classList.add('text-slate-600');
+  });
+  
+  const activeBtn = period === 'monthly' ? 'monthlyBtn' : 'yearlyBtn';
+  const btn = document.getElementById(activeBtn);
+  btn.classList.add('active', 'bg-white', 'text-slate-900', 'shadow-sm');
+  btn.classList.remove('text-slate-600');
+  
+  updatePricing();
+}
+
+function updatePricing() {
+  const price = pricing[billingPeriod].cloud;
+  const period = billingPeriod === 'monthly' ? '/month' : '/year';
+  
+  document.getElementById('cloudPrice').textContent = `$${price}`;
+  document.getElementById('cloudPeriod').textContent = period;
+  
+  updateSubscribeButton();
+  updatePriceSummary();
+}
+
+function applyCoupon() {
+  const code = document.getElementById('couponInput').value.trim().toUpperCase();
+  const messageEl = document.getElementById('couponMessage');
+  
+  if (!code) {
+    showCouponMessage('Please enter a coupon code', 'error');
+    return;
+  }
+  
+  if (coupons[code]) {
+    appliedCoupon = { code, ...coupons[code] };
+    showCouponMessage(`✓ ${appliedCoupon.description} applied!`, 'success');
+    document.getElementById('applyCouponBtn').textContent = 'Applied';
+    document.getElementById('applyCouponBtn').classList.remove('bg-slate-100', 'text-slate-600');
+    document.getElementById('applyCouponBtn').classList.add('bg-green-100', 'text-green-700');
+  } else {
+    showCouponMessage('Invalid coupon code', 'error');
+  }
+  
+  updatePriceSummary();
+  updateSubscribeButton();
+}
+
+function showCouponMessage(message, type) {
+  const messageEl = document.getElementById('couponMessage');
+  messageEl.textContent = message;
+  messageEl.className = `mt-2 text-sm ${type === 'error' ? 'text-red-600' : 'text-green-600'}`;
+  messageEl.classList.remove('hidden');
+}
+
+function updatePriceSummary() {
+  const summaryEl = document.getElementById('priceSummary');
+  const originalPrice = pricing[billingPeriod].cloud;
+  let finalPrice = originalPrice;
+  
+  document.getElementById('originalPrice').textContent = `$${originalPrice}${billingPeriod === 'monthly' ? '/month' : '/year'}`;
+  
+  const discountRow = document.getElementById('discountRow');
+  if (appliedCoupon) {
+    const discount = appliedCoupon.type === 'percentage' 
+      ? originalPrice * appliedCoupon.discount
+      : appliedCoupon.discount;
+    
+    finalPrice = Math.max(0, originalPrice - discount);
+    
+    document.getElementById('discountAmount').textContent = `-$${discount.toFixed(2)}`;
+    discountRow.classList.remove('hidden');
+    summaryEl.classList.remove('hidden');
+  } else {
+    discountRow.classList.add('hidden');
+    summaryEl.classList.add('hidden');
+  }
+  
+  document.getElementById('finalPrice').textContent = `$${finalPrice.toFixed(2)}`;
+}
+
+function updateSubscribeButton() {
+  const btn = document.getElementById('subscribeBtn');
+  const price = pricing[billingPeriod].cloud;
+  let finalPrice = price;
+  
+  if (appliedCoupon) {
+    const discount = appliedCoupon.type === 'percentage' 
+      ? price * appliedCoupon.discount
+      : appliedCoupon.discount;
+    finalPrice = Math.max(0, price - discount);
+  }
+  
+  const period = billingPeriod === 'monthly' ? '/month' : '/year';
+  btn.innerHTML = `<span class="truncate">Upgrade to Cloud - $${finalPrice.toFixed(2)}${period}</span>`;
+}
+
+function subscribe() {
+  const price = pricing[billingPeriod].cloud;
+  let finalPrice = price;
+  
+  if (appliedCoupon) {
+    const discount = appliedCoupon.type === 'percentage' 
+      ? price * appliedCoupon.discount
+      : appliedCoupon.discount;
+    finalPrice = Math.max(0, price - discount);
+  }
+  
+  // Simulate subscription process
+  alert(`Subscription initiated!\n\nPlan: MoneyT Cloud\nBilling: ${billingPeriod}\nPrice: $${finalPrice.toFixed(2)}${billingPeriod === 'monthly' ? '/month' : '/year'}\n${appliedCoupon ? `Coupon: ${appliedCoupon.code}` : ''}\n\nIn a real app, this would redirect to payment processing.`);
+  
+  // In real app, redirect to payment processor
+  // window.location.href = 'payment_flow.html';
+}
+
+// Carousel functionality
+let currentSlide = 0;
+const totalSlides = 2;
+
+function updateCarousel() {
+  const carousel = document.getElementById('plansCarousel');
+  const indicators = document.querySelectorAll('.carousel-indicator');
+  
+  carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+  
+  indicators.forEach((indicator, index) => {
+    if (index === currentSlide) {
+      indicator.classList.remove('bg-slate-300');
+      indicator.classList.add('bg-[#4ae3b5]');
+    } else {
+      indicator.classList.remove('bg-[#4ae3b5]');
+      indicator.classList.add('bg-slate-300');
+    }
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  updateCarousel();
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  updateCarousel();
+}
+
+function goToSlide(slideIndex) {
+  currentSlide = slideIndex;
+  updateCarousel();
+}
+
+// Event listeners
+document.querySelector('.carousel-nav-next').addEventListener('click', nextSlide);
+document.querySelector('.carousel-nav-prev').addEventListener('click', prevSlide);
+
+document.querySelectorAll('.carousel-indicator').forEach((indicator, index) => {
+  indicator.addEventListener('click', () => goToSlide(index));
+});
+
+// Touch/swipe support
+let startX = 0;
+let endX = 0;
+
+document.getElementById('plansCarousel').addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
+
+document.getElementById('plansCarousel').addEventListener('touchend', (e) => {
+  endX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const difference = startX - endX;
+  const threshold = 50;
+  
+  if (Math.abs(difference) > threshold) {
+    if (difference > 0) {
+      nextSlide();
+    } else {
+      prevSlide();
+    }
+  }
+}
+
+// Auto-advance carousel (optional)
+setInterval(() => {
+  nextSlide();
+}, 8000);
+
+// Initialize
+updateCarousel();
+
+// Initialize
+updatePricing();
+</script>
+</body></html>

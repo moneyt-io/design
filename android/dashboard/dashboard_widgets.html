@@ -1,0 +1,399 @@
+<!-- NAVIGATION FLOW:
+- Back button: Returns to dashboard_main.html
+- Toggle switches: Enable/disable widgets
+- Drag handles: Reorder widgets
+- Save button: Apply changes and return to dashboard
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Dashboard Widgets - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .widget-item {
+      transition: all 0.2s ease-in-out;
+    }
+    .widget-item.dragging {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.25);
+      z-index: 50;
+    }
+    .widget-item.disabled {
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-3 justify-between">
+<button onclick="window.location.href='dashboard_main.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center">Dashboard Widgets</h1>
+<div class="h-10 w-10"></div>
+</div>
+</header>
+
+<main class="flex-grow overflow-y-auto pb-24 px-4">
+<!-- Widget List -->
+<div class="space-y-3 mt-4" id="widget-list">
+<!-- Balance Widget -->
+<div class="widget-item bg-white rounded-xl shadow-sm border border-slate-200 p-4" data-widget="balance">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="drag-handle flex items-center justify-center h-8 w-8 rounded-lg bg-slate-100 text-slate-500 hover:bg-slate-200 cursor-grab active:cursor-grabbing">
+<span class="material-symbols-outlined text-lg">drag_indicator</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div>
+<h3 class="text-slate-800 text-base font-semibold">Total Balance</h3>
+<p class="text-slate-500 text-sm">Shows your overall financial status</p>
+</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input type="checkbox" class="sr-only peer widget-toggle" checked data-widget="balance">
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+</label>
+</div>
+</div>
+
+<!-- Quick Actions Widget -->
+<div class="widget-item bg-white rounded-xl shadow-sm border border-slate-200 p-4" data-widget="quick-actions">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="drag-handle flex items-center justify-center h-8 w-8 rounded-lg bg-slate-100 text-slate-500 hover:bg-slate-200 cursor-grab active:cursor-grabbing">
+<span class="material-symbols-outlined text-lg">drag_indicator</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-green-100 text-green-600">
+<span class="material-symbols-outlined">flash_on</span>
+</div>
+<div>
+<h3 class="text-slate-800 text-base font-semibold">Quick Actions</h3>
+<p class="text-slate-500 text-sm">Fast access to common transactions</p>
+</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input type="checkbox" class="sr-only peer widget-toggle" checked data-widget="quick-actions">
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+</label>
+</div>
+</div>
+
+<!-- Wallets Widget -->
+<div class="widget-item bg-white rounded-xl shadow-sm border border-slate-200 p-4" data-widget="wallets">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="drag-handle flex items-center justify-center h-8 w-8 rounded-lg bg-slate-100 text-slate-500 hover:bg-slate-200 cursor-grab active:cursor-grabbing">
+<span class="material-symbols-outlined text-lg">drag_indicator</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 text-blue-600">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</div>
+<div>
+<h3 class="text-slate-800 text-base font-semibold">Wallets</h3>
+<p class="text-slate-500 text-sm">Overview of your accounts</p>
+</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input type="checkbox" class="sr-only peer widget-toggle" checked data-widget="wallets">
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+</label>
+</div>
+</div>
+
+<!-- Loans Widget -->
+<div class="widget-item bg-white rounded-xl shadow-sm border border-slate-200 p-4" data-widget="loans">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="drag-handle flex items-center justify-center h-8 w-8 rounded-lg bg-slate-100 text-slate-500 hover:bg-slate-200 cursor-grab active:cursor-grabbing">
+<span class="material-symbols-outlined text-lg">drag_indicator</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-orange-100 text-orange-600">
+<span class="material-symbols-outlined">handshake</span>
+</div>
+<div>
+<h3 class="text-slate-800 text-base font-semibold">Loans</h3>
+<p class="text-slate-500 text-sm">Track borrowed and lent money</p>
+</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input type="checkbox" class="sr-only peer widget-toggle" checked data-widget="loans">
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+</label>
+</div>
+</div>
+
+<!-- Recent Transactions Widget -->
+<div class="widget-item bg-white rounded-xl shadow-sm border border-slate-200 p-4" data-widget="transactions">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="drag-handle flex items-center justify-center h-8 w-8 rounded-lg bg-slate-100 text-slate-500 hover:bg-slate-200 cursor-grab active:cursor-grabbing">
+<span class="material-symbols-outlined text-lg">drag_indicator</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-slate-100 text-slate-600">
+<span class="material-symbols-outlined">receipt_long</span>
+</div>
+<div>
+<h3 class="text-slate-800 text-base font-semibold">Recent Transactions</h3>
+<p class="text-slate-500 text-sm">Latest financial activity</p>
+</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input type="checkbox" class="sr-only peer widget-toggle" checked data-widget="transactions">
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+</label>
+</div>
+</div>
+
+<!-- Chart of Accounts Widget -->
+<div class="widget-item bg-white rounded-xl shadow-sm border border-slate-200 p-4" data-widget="chart-accounts">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="drag-handle flex items-center justify-center h-8 w-8 rounded-lg bg-slate-100 text-slate-500 hover:bg-slate-200 cursor-grab active:cursor-grabbing">
+<span class="material-symbols-outlined text-lg">drag_indicator</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-purple-100 text-purple-600">
+<span class="material-symbols-outlined">account_tree</span>
+</div>
+<div>
+<h3 class="text-slate-800 text-base font-semibold">Chart of Accounts</h3>
+<p class="text-slate-500 text-sm">Account structure overview</p>
+</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input type="checkbox" class="sr-only peer widget-toggle" data-widget="chart-accounts">
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+</label>
+</div>
+</div>
+
+<!-- Credit Cards Widget (Hidden) -->
+<div class="widget-item bg-white rounded-xl shadow-sm border border-slate-200 p-4 disabled" data-widget="credit-cards">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="drag-handle flex items-center justify-center h-8 w-8 rounded-lg bg-slate-100 text-slate-500 hover:bg-slate-200 cursor-grab active:cursor-grabbing">
+<span class="material-symbols-outlined text-lg">drag_indicator</span>
+</button>
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-red-100 text-red-600">
+<span class="material-symbols-outlined">credit_card</span>
+</div>
+<div>
+<h3 class="text-slate-800 text-base font-semibold">Credit Cards</h3>
+<p class="text-slate-500 text-sm">Credit card balances and limits</p>
+</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input type="checkbox" class="sr-only peer widget-toggle" data-widget="credit-cards">
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+</label>
+</div>
+</div>
+</div>
+
+<!-- Reset to Default -->
+<div class="mt-6">
+<button onclick="resetToDefault()" class="flex items-center gap-2 w-full px-4 py-3 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50">
+<span class="material-symbols-outlined">refresh</span>
+<span class="text-sm font-medium">Reset to Default Layout</span>
+</button>
+</div>
+</main>
+</div>
+
+<!-- Save Button - Sticky -->
+<footer class="sticky bottom-0 bg-slate-50/80 backdrop-blur-md px-4 py-3 border-t border-slate-200">
+<button 
+  onclick="saveChanges()"
+  class="w-full min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-5 bg-[#0c7ff2] text-slate-50 text-sm font-medium leading-normal tracking-tight shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
+>
+<span class="truncate">Save Changes</span>
+</button>
+</footer>
+</div>
+
+<script>
+// Widget configuration state
+let widgetConfig = {
+  'balance': { enabled: true, order: 1 },
+  'quick-actions': { enabled: true, order: 2 },
+  'wallets': { enabled: true, order: 3 },
+  'loans': { enabled: true, order: 4 },
+  'transactions': { enabled: true, order: 5 },
+  'chart-accounts': { enabled: false, order: 6 },
+  'credit-cards': { enabled: false, order: 7 }
+};
+
+// Initialize drag and drop functionality
+document.addEventListener('DOMContentLoaded', function() {
+  initializeDragAndDrop();
+  updateWidgetStates();
+  
+  // Add toggle listeners
+  document.querySelectorAll('.widget-toggle').forEach(toggle => {
+    toggle.addEventListener('change', function() {
+      const widget = this.getAttribute('data-widget');
+      widgetConfig[widget].enabled = this.checked;
+      updateWidgetStates();
+    });
+  });
+});
+
+function initializeDragAndDrop() {
+  const widgetList = document.getElementById('widget-list');
+  let draggedElement = null;
+
+  // Add drag event listeners to all widget items
+  document.querySelectorAll('.widget-item').forEach(item => {
+    item.draggable = true;
+    
+    item.addEventListener('dragstart', function(e) {
+      draggedElement = this;
+      this.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    
+    item.addEventListener('dragend', function(e) {
+      this.classList.remove('dragging');
+      draggedElement = null;
+    });
+    
+    item.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+    });
+    
+    item.addEventListener('drop', function(e) {
+      e.preventDefault();
+      if (draggedElement && draggedElement !== this) {
+        const rect = this.getBoundingClientRect();
+        const midpoint = rect.top + rect.height / 2;
+        
+        if (e.clientY < midpoint) {
+          this.parentNode.insertBefore(draggedElement, this);
+        } else {
+          this.parentNode.insertBefore(draggedElement, this.nextSibling);
+        }
+        
+        updateWidgetOrder();
+      }
+    });
+  });
+}
+
+function updateWidgetStates() {
+  document.querySelectorAll('.widget-item').forEach(item => {
+    const widget = item.getAttribute('data-widget');
+    const toggle = item.querySelector('.widget-toggle');
+    const enabled = widgetConfig[widget].enabled;
+    
+    toggle.checked = enabled;
+    
+    if (enabled) {
+      item.classList.remove('disabled');
+    } else {
+      item.classList.add('disabled');
+    }
+  });
+}
+
+function updateWidgetOrder() {
+  const widgetItems = document.querySelectorAll('.widget-item');
+  widgetItems.forEach((item, index) => {
+    const widget = item.getAttribute('data-widget');
+    widgetConfig[widget].order = index + 1;
+  });
+}
+
+function resetToDefault() {
+  if (confirm('Reset dashboard to default layout? This will restore all widgets to their original positions.')) {
+    // Reset to default configuration
+    widgetConfig = {
+      'balance': { enabled: true, order: 1 },
+      'quick-actions': { enabled: true, order: 2 },
+      'wallets': { enabled: true, order: 3 },
+      'loans': { enabled: true, order: 4 },
+      'transactions': { enabled: true, order: 5 },
+      'chart-accounts': { enabled: false, order: 6 },
+      'credit-cards': { enabled: false, order: 7 }
+    };
+    
+    // Reorder DOM elements
+    const widgetList = document.getElementById('widget-list');
+    const sortedWidgets = Object.entries(widgetConfig)
+      .sort((a, b) => a[1].order - b[1].order)
+      .map(([widget]) => document.querySelector(`[data-widget="${widget}"]`));
+    
+    sortedWidgets.forEach(item => {
+      if (item) {
+        widgetList.appendChild(item);
+      }
+    });
+    
+    updateWidgetStates();
+    
+    // Show feedback
+    alert('Dashboard reset to default layout!');
+  }
+}
+
+function saveChanges() {
+  // Save configuration to localStorage (in a real app, this would sync to backend)
+  localStorage.setItem('dashboardWidgets', JSON.stringify(widgetConfig));
+  
+  // Show success feedback
+  const button = event.target;
+  const originalText = button.textContent;
+  button.textContent = 'Saved!';
+  button.classList.add('bg-green-500');
+  button.classList.remove('bg-[#0c7ff2]');
+  
+  setTimeout(() => {
+    button.textContent = originalText;
+    button.classList.remove('bg-green-500');
+    button.classList.add('bg-[#0c7ff2]');
+    
+    // Navigate back to dashboard
+    window.location.href = 'dashboard_main.html';
+  }, 1000);
+}
+
+// Load saved configuration on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const saved = localStorage.getItem('dashboardWidgets');
+  if (saved) {
+    try {
+      widgetConfig = JSON.parse(saved);
+    } catch (e) {
+      console.error('Failed to load widget configuration:', e);
+    }
+  }
+});
+</script>
+</body></html>

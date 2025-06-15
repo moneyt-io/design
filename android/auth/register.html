@@ -1,0 +1,269 @@
+<!-- NAVIGATION FLOW:
+- Back to login: Goes to login.html
+- Google Sign Up: OAuth flow and redirect to dashboard
+- Email/Password registration: Creates account and goes to dashboard
+- Terms and Privacy links: External pages
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Create Account - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .google-btn {
+      transition: all 0.2s ease-in-out;
+    }
+    .google-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+<div class="relative flex size-full min-h-screen flex-col justify-center group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+
+<!-- Background Pattern -->
+<div class="absolute inset-0 overflow-hidden">
+<div class="absolute -top-1/2 -right-1/2 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-1/2 -left-1/2 w-96 h-96 bg-gradient-to-tr from-green-400/20 to-blue-400/20 rounded-full blur-3xl"></div>
+</div>
+
+<!-- Back Button -->
+<div class="absolute top-6 left-4 z-10">
+<button onclick="window.location.href='login.html'" class="flex items-center justify-center h-10 w-10 rounded-full bg-white/80 backdrop-blur-sm text-slate-600 hover:bg-white shadow-sm">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+</div>
+
+<main class="relative z-10 flex-grow flex items-center justify-center px-4 py-8">
+<div class="w-full max-w-md">
+<!-- Logo and Header -->
+<div class="text-center mb-8">
+<div class="flex items-center justify-center h-20 w-20 rounded-2xl bg-gradient-to-br from-[#4ae3b5] to-[#36d399] text-white mx-auto mb-4 shadow-lg">
+<span class="material-symbols-outlined text-3xl">account_balance_wallet</span>
+</div>
+<h1 class="text-3xl font-bold text-slate-900 mb-2">Create Account</h1>
+<p class="text-slate-600 text-base">Join MoneyT and start managing your finances</p>
+</div>
+
+<!-- Registration Form Card -->
+<div class="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border border-white/20 p-6">
+<!-- Google Sign Up Button -->
+<button onclick="signUpWithGoogle()" class="google-btn w-full flex items-center justify-center gap-3 px-4 py-3 rounded-xl border-2 border-slate-200 bg-white text-slate-700 font-medium hover:border-slate-300 hover:bg-slate-50 transition-all mb-6">
+<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+</svg>
+<span>Continue with Google</span>
+</button>
+
+<!-- Divider -->
+<div class="relative mb-6">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-slate-200"></div>
+</div>
+<div class="relative flex justify-center text-sm">
+<span class="px-4 bg-white text-slate-500">or create with email</span>
+</div>
+</div>
+
+<!-- Registration Form -->
+<form onsubmit="handleRegister(event)" class="space-y-4">
+<!-- Full Name -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-white text-xs text-slate-500" for="fullName">Full name</label>
+<input 
+  id="fullName"
+  type="text" 
+  required
+  placeholder="John Anderson"
+  class="form-input w-full rounded-xl border-slate-300 bg-white text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-12 px-4 text-base font-normal leading-normal"
+/>
+</div>
+
+<!-- Email Input -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-white text-xs text-slate-500" for="email">Email address</label>
+<input 
+  id="email"
+  type="email" 
+  required
+  placeholder="john@example.com"
+  class="form-input w-full rounded-xl border-slate-300 bg-white text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-12 px-4 text-base font-normal leading-normal"
+/>
+</div>
+
+<!-- Password Input -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-white text-xs text-slate-500" for="password">Password</label>
+<input 
+  id="password"
+  type="password" 
+  required
+  placeholder="Create a strong password"
+  class="form-input w-full rounded-xl border-slate-300 bg-white text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-12 px-4 text-base font-normal leading-normal"
+/>
+</div>
+
+<!-- Confirm Password -->
+<div class="relative">
+<label class="absolute -top-2 left-3 px-1 bg-white text-xs text-slate-500" for="confirmPassword">Confirm password</label>
+<input 
+  id="confirmPassword"
+  type="password" 
+  required
+  placeholder="Confirm your password"
+  class="form-input w-full rounded-xl border-slate-300 bg-white text-slate-900 placeholder-slate-400 focus:border-blue-500 focus:ring-blue-500 h-12 px-4 text-base font-normal leading-normal"
+/>
+</div>
+
+<!-- Terms and Conditions -->
+<div class="flex items-start gap-2 text-sm">
+<input type="checkbox" id="terms" required class="w-4 h-4 text-blue-600 bg-white border-slate-300 rounded focus:ring-blue-500 focus:ring-2 mt-0.5">
+<label for="terms" class="text-slate-600">
+I agree to the <a href="https://moneyt.io/terms" target="_blank" class="text-blue-600 hover:text-blue-700 font-medium">Terms of Service</a> and <a href="https://moneyt.io/privacy" target="_blank" class="text-blue-600 hover:text-blue-700 font-medium">Privacy Policy</a>
+</label>
+</div>
+
+<!-- Create Account Button -->
+<button 
+  type="submit"
+  class="w-full bg-gradient-to-r from-[#4ae3b5] to-[#36d399] text-white py-3 rounded-xl font-semibold hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all"
+>
+Create Account
+</button>
+</form>
+
+<!-- Sign In Link -->
+<div class="text-center mt-6 pt-4 border-t border-slate-200">
+<p class="text-slate-600 text-sm">
+Already have an account? 
+<a href="login.html" class="text-blue-600 hover:text-blue-700 font-semibold">Sign in</a>
+</p>
+</div>
+</div>
+
+<!-- Features Preview -->
+<div class="mt-8 text-center">
+<div class="flex justify-center gap-6 text-xs text-slate-400">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-green-500">verified</span>
+<span>Secure</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-blue-500">cloud_sync</span>
+<span>Cloud Sync</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-purple-500">account_balance</span>
+<span>Open Banking</span>
+</div>
+</div>
+<div class="mt-4 text-center">
+<p class="text-slate-400 text-xs">MoneyT v1.0.0</p>
+<p class="text-slate-400 text-xs mt-1">© 2024 MoneyT. All rights reserved.</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<script>
+function signUpWithGoogle() {
+  // Show loading state
+  const btn = event.target.closest('button');
+  const originalText = btn.innerHTML;
+  btn.innerHTML = '<div class="flex items-center justify-center gap-2"><div class="w-5 h-5 border-2 border-slate-300 border-t-blue-500 rounded-full animate-spin"></div><span>Creating account...</span></div>';
+  btn.disabled = true;
+  
+  // Simulate Google OAuth flow
+  setTimeout(() => {
+    alert('Google Sign Up would be processed here.\n\nIn a real implementation, this would:\n1. Open Google OAuth popup\n2. Handle registration\n3. Create user account\n4. Redirect to dashboard');
+    
+    // Simulate successful registration
+    window.location.href = '../dashboard/dashboard_main.html';
+  }, 2000);
+}
+
+function handleRegister(event) {
+  event.preventDefault();
+  
+  const fullName = document.getElementById('fullName').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
+  const termsAccepted = document.getElementById('terms').checked;
+  
+  // Validation
+  if (password !== confirmPassword) {
+    alert('Passwords do not match. Please try again.');
+    return;
+  }
+  
+  if (password.length < 8) {
+    alert('Password must be at least 8 characters long.');
+    return;
+  }
+  
+  if (!termsAccepted) {
+    alert('Please accept the Terms of Service and Privacy Policy.');
+    return;
+  }
+  
+  // Show loading state
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  submitBtn.innerHTML = '<div class="flex items-center justify-center gap-2"><div class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div><span>Creating account...</span></div>';
+  submitBtn.disabled = true;
+  
+  // Simulate registration process
+  setTimeout(() => {
+    alert(`Welcome to MoneyT!\n\nAccount created for: ${fullName}\nEmail: ${email}\n\nIn a real app, this would:\n1. Create user account\n2. Send verification email\n3. Redirect to dashboard`);
+    window.location.href = '../dashboard/dashboard_main.html';
+  }, 2000);
+}
+
+// Auto-focus full name field
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('fullName').focus();
+});
+
+// Add subtle animations on input focus
+document.querySelectorAll('input').forEach(input => {
+  input.addEventListener('focus', function() {
+    this.parentElement.classList.add('scale-[1.02]');
+  });
+  
+  input.addEventListener('blur', function() {
+    this.parentElement.classList.remove('scale-[1.02]');
+  });
+});
+
+// Real-time password confirmation validation
+document.getElementById('confirmPassword').addEventListener('input', function() {
+  const password = document.getElementById('password').value;
+  const confirmPassword = this.value;
+  
+  if (confirmPassword && password !== confirmPassword) {
+    this.setCustomValidity('Passwords do not match');
+    this.classList.add('border-red-300', 'focus:border-red-500', 'focus:ring-red-500');
+    this.classList.remove('border-slate-300', 'focus:border-blue-500', 'focus:ring-blue-500');
+  } else {
+    this.setCustomValidity('');
+    this.classList.remove('border-red-300', 'focus:border-red-500', 'focus:ring-red-500');
+    this.classList.add('border-slate-300', 'focus:border-blue-500', 'focus:ring-blue-500');
+  }
+});
+</script>
+</body></html>

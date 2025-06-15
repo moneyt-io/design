@@ -1,0 +1,122 @@
+<!-- NAVIGATION FLOW:
+- Back button: Returns to backup_list.html
+- Auto backup toggle: Enable/disable automatic backups
+- Frequency settings: Change backup schedule
+- Storage settings: Configure backup location
+-->
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Backup Settings - MoneyT</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-slate-50">
+<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+<div class="flex-grow">
+<header class="sticky top-0 z-10 bg-slate-50/80 backdrop-blur-md">
+<div class="flex items-center p-4 pb-3 justify-between">
+<button onclick="window.location.href='backup_list.html'" class="flex items-center justify-center h-10 w-10 rounded-full text-slate-600 hover:bg-slate-100">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-slate-900 text-xl font-semibold leading-tight tracking-tight flex-1 text-center">Backup Settings</h1>
+<div class="h-10 w-10"></div>
+</div>
+</header>
+
+<main class="flex-grow overflow-y-auto pb-6">
+<!-- Auto Backup Settings -->
+<div class="bg-white mx-4 mt-4 rounded-xl shadow-sm border border-slate-200">
+<div class="px-4 py-3 border-b border-slate-100">
+<h3 class="text-slate-800 text-base font-semibold">Auto Backup</h3>
+</div>
+<div class="p-4 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex-grow">
+<p class="text-slate-800 text-sm font-medium">Enable auto backup</p>
+<p class="text-slate-500 text-xs">Automatic weekly backups</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input type="checkbox" class="sr-only peer" checked>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+</label>
+</div>
+
+<div class="flex items-center justify-between pt-3 border-t border-slate-100">
+<div class="flex-grow">
+<p class="text-slate-800 text-sm font-medium">Backup frequency</p>
+<p class="text-slate-500 text-xs">Every Sunday at 2:00 AM</p>
+</div>
+<button class="text-blue-600 text-sm font-medium hover:text-blue-700">
+Change
+</button>
+</div>
+
+<div class="flex items-center justify-between pt-3 border-t border-slate-100">
+<div class="flex-grow">
+<p class="text-slate-800 text-sm font-medium">Keep backups for</p>
+<p class="text-slate-500 text-xs">3 months (12 backups)</p>
+</div>
+<button class="text-blue-600 text-sm font-medium hover:text-blue-700">
+Change
+</button>
+</div>
+</div>
+</div>
+
+<!-- Backup Information -->
+<div class="bg-white mx-4 mt-4 rounded-xl shadow-sm border border-slate-200">
+<div class="px-4 py-3 border-b border-slate-100">
+<h3 class="text-slate-800 text-base font-semibold">Backup Information</h3>
+</div>
+<div class="p-4 space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">Total backups</span>
+<span class="text-slate-900 text-sm font-medium">4 files</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">Total size</span>
+<span class="text-slate-900 text-sm font-medium">7.5 MB</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">Last backup</span>
+<span class="text-slate-900 text-sm font-medium">Dec 15, 2024</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-slate-600 text-sm">Next backup</span>
+<span class="text-slate-900 text-sm font-medium">Dec 22, 2024</span>
+</div>
+</div>
+</div>
+
+<!-- Advanced Options -->
+<div class="bg-white mx-4 mt-4 rounded-xl shadow-sm border border-slate-200">
+<div class="px-4 py-3 border-b border-slate-100">
+<h3 class="text-slate-800 text-base font-semibold">Advanced</h3>
+</div>
+<div class="p-4">
+<button class="flex items-center gap-3 w-full text-left">
+<div class="flex items-center justify-center h-10 w-10 rounded-full bg-red-100 text-red-600">
+<span class="material-symbols-outlined">delete_sweep</span>
+</div>
+<div class="flex-grow">
+<p class="text-red-600 text-base font-medium">Delete all backups</p>
+<p class="text-red-500 text-sm">Remove all backup files permanently</p>
+</div>
+</button>
+</div>
+</div>
+</main>
+</div>
+</div>
+</body></html>
