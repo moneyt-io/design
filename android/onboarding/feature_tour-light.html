@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - MoneyT</title>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Public+Sans%3Awght%40400%3B500%3B600%3B700&amp;family=Material+Symbols+Outlined%3Aopsz%2Cwght%2CFILL%2CGRAD%4020..48%2C100..700%2C0..1%2C-50..200" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+        }
+        .snap-container {
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+        .snap-child {
+            scroll-snap-align: start;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body style='font-family: "Public Sans", "Noto Sans", sans-serif; background: linear-gradient(to bottom right, rgba(74, 227, 181, 0.15), #f8fafc);' class="text-slate-900">
+    <div class="flex flex-col h-screen">
+        <!-- Header -->
+        <div class="flex items-center justify-between p-4">
+            <div class="w-full bg-slate-200 rounded-full h-1.5">
+                <div class="bg-teal-500 h-1.5 rounded-full" style="width: 16.6%"></div> <!-- 1/6 -->
+            </div>
+            <a href="complete-light.html" class="text-sm text-slate-600 hover:text-slate-900 ml-4 flex-shrink-0">Saltar tour</a>
+        </div>
+
+        <!-- Carousel -->
+        <div class="flex-grow overflow-x-auto snap-container flex">
+            <!-- Slide 1: Préstamos -->
+            <div class="w-full snap-child flex flex-col items-center justify-center p-8 text-center">
+                <div class="flex items-center justify-center h-24 w-24 rounded-full bg-teal-100 text-teal-500 mb-6">
+                    <span class="material-symbols-outlined text-5xl">payments</span>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-900 mb-2">Préstamos</h2>
+                <p class="text-slate-600">Controla cuotas, intereses y fechas de vencimiento.</p>
+            </div>
+            <!-- Slide 2: Núcleo contable -->
+            <div class="w-full snap-child flex flex-col items-center justify-center p-8 text-center">
+                <div class="flex items-center justify-center h-24 w-24 rounded-full bg-teal-100 text-teal-500 mb-6">
+                    <span class="material-symbols-outlined text-5xl">book</span>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-900 mb-2">Núcleo contable</h2>
+                <p class="text-slate-600">Tipos y definiciones contables al registrar operaciones.</p>
+            </div>
+            <!-- Slide 3: Open Banking -->
+            <div class="w-full snap-child relative flex flex-col items-center justify-center p-8 text-center">
+                <div class="absolute top-4 right-4 bg-slate-200 text-slate-500 text-xs font-bold uppercase px-2 py-1 rounded-full">Próximamente</div>
+                <div class="flex items-center justify-center h-24 w-24 rounded-full bg-slate-200 text-slate-400 mb-6">
+                    <span class="material-symbols-outlined text-5xl">account_balance</span>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-400 mb-2">Open Banking</h2>
+                <p class="text-slate-500">Conecta tus cuentas y categoriza movimientos automáticamente.</p>
+            </div>
+            <!-- Slide 4: Crypto -->
+            <div class="w-full snap-child relative flex flex-col items-center justify-center p-8 text-center">
+                <div class="absolute top-4 right-4 bg-slate-200 text-slate-500 text-xs font-bold uppercase px-2 py-1 rounded-full">Próximamente</div>
+                <div class="flex items-center justify-center h-24 w-24 rounded-full bg-slate-200 text-slate-400 mb-6">
+                    <span class="material-symbols-outlined text-5xl">currency_bitcoin</span>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-400 mb-2">Crypto</h2>
+                <p class="text-slate-500">Sigue el rendimiento de tus inversiones en tiempo real.</p>
+            </div>
+            <!-- Slide 5: Multi-moneda -->
+            <div class="w-full snap-child relative flex flex-col items-center justify-center p-8 text-center">
+                <div class="absolute top-4 right-4 bg-slate-200 text-slate-500 text-xs font-bold uppercase px-2 py-1 rounded-full">Próximamente</div>
+                <div class="flex items-center justify-center h-24 w-24 rounded-full bg-slate-200 text-slate-400 mb-6">
+                    <span class="material-symbols-outlined text-5xl">currency_exchange</span>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-400 mb-2">Multi-moneda</h2>
+                <p class="text-slate-500">Administra saldos y transacciones en distintas divisas.</p>
+            </div>
+            <!-- Slide 6: Gastos compartidos -->
+            <div class="w-full snap-child relative flex flex-col items-center justify-center p-8 text-center">
+                <div class="absolute top-4 right-4 bg-slate-200 text-slate-500 text-xs font-bold uppercase px-2 py-1 rounded-full">Próximamente</div>
+                <div class="flex items-center justify-center h-24 w-24 rounded-full bg-slate-200 text-slate-400 mb-6">
+                    <span class="material-symbols-outlined text-5xl">groups</span>
+                </div>
+                <h2 class="text-2xl font-bold text-slate-400 mb-2">Gastos compartidos</h2>
+                <p class="text-slate-500">Divide cuentas y coordina pagos con amigos o familia.</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="p-8">
+            <a href="complete-light.html" class="w-full bg-teal-500 hover:bg-teal-600 text-white py-3 rounded-full font-medium transition-colors text-center block shadow-lg shadow-teal-500/20">
+                Siguiente
+            </a>
+        </div>
+    </div>
+</body>
+</html>
